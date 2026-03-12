@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { getSuggestedRole, suggestAITeam } from "@/lib/aiTeamLogic";
 import { defaultIntakeData, type IntakeData } from "@/lib/types";
 
@@ -210,6 +210,7 @@ export default function Home() {
   const [errors, setErrors] = useState<string[]>([]);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const hasInitializedHistory = useRef(false);
 
   useEffect(() => {
     const saved = window.localStorage.getItem("spawnos-intake-draft");
@@ -238,6 +239,11 @@ export default function Home() {
       if (nextIndex >= 0) setStepIndex(nextIndex);
     };
 
+    const initialUrl = new URL(window.location.href);
+    initialUrl.searchParams.set("step", steps[requestedStep ? Math.max(steps.findIndex((step) => step.id === requestedStep), 0) : 0].id);
+    window.history.replaceState({ step: initialUrl.searchParams.get("step") }, "", initialUrl);
+    hasInitializedHistory.current = true;
+
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
@@ -245,12 +251,6 @@ export default function Home() {
   useEffect(() => {
     window.localStorage.setItem("spawnos-intake-draft", JSON.stringify(data));
   }, [data]);
-
-  useEffect(() => {
-    const url = new URL(window.location.href);
-    url.searchParams.set("step", steps[stepIndex].id);
-    window.history.pushState({ step: steps[stepIndex].id }, "", url);
-  }, [stepIndex]);
 
   const currentStep = steps[stepIndex];
   const progress = Math.round((Math.min(stepIndex, navigableSteps.length - 1) / (navigableSteps.length - 1)) * 100);
@@ -267,10 +267,18 @@ export default function Home() {
     } as IntakeData));
   };
 
-  const goToStep = (nextIndex: number) => {
+  const goToStep = (nextIndex: number, options?: { replace?: boolean }) => {
+    const safeIndex = Math.max(0, Math.min(nextIndex, steps.length - 1));
     setErrors([]);
     setSubmitError(null);
-    setStepIndex(Math.max(0, Math.min(nextIndex, steps.length - 1)));
+    setStepIndex(safeIndex);
+
+    if (typeof window !== "undefined" && hasInitializedHistory.current) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("step", steps[safeIndex].id);
+      const method = options?.replace ? "replaceState" : "pushState";
+      window.history[method]({ step: steps[safeIndex].id }, "", url);
+    }
   };
 
   const toggleListValue = (section: "role" | "goals" | "tools", key: string, value: string, max?: number) => {
