@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -8,8 +8,11 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-export const metadata: Metadata = {
+export const viewport: Viewport = {
   themeColor: "#0A0A0A",
+};
+
+export const metadata: Metadata = {
   title: "SpawnOS — Build Your AI Team",
   description: "Answer a few questions so we can design your custom AI operating system.",
   openGraph: {

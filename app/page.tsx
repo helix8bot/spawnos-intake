@@ -81,8 +81,8 @@ const steps: Step[] = [
   {
     id: "done",
     section: "Done",
-    title: "Your SpawnOS package is being built!",
-    subtitle: "We’ve got what we need. Next step: we turn this into your install package.",
+    title: "🚀 Your AI Team is Being Built!",
+    subtitle: "Your submission is in. Check your email for confirmation and install instructions.",
     image:
       "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1600&q=80",
   },
@@ -199,6 +199,8 @@ const techComfortOptions = [
   '🤓 "I write code for fun"',
 ];
 
+const navigableSteps = steps.filter((step) => step.id !== "done");
+
 export default function Home() {
   const [stepIndex, setStepIndex] = useState(0);
   const [otherIndustry, setOtherIndustry] = useState("");
@@ -206,6 +208,7 @@ export default function Home() {
   const [otherEmailTool, setOtherEmailTool] = useState("");
   const [data, setData] = useState<IntakeData>(defaultIntakeData);
   const [errors, setErrors] = useState<string[]>([]);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
@@ -216,14 +219,41 @@ export default function Home() {
         setData(parsed);
       } catch {}
     }
+
+    const params = new URLSearchParams(window.location.search);
+    const requestedStep = params.get("step");
+    if (requestedStep) {
+      const foundIndex = steps.findIndex((step) => step.id === requestedStep);
+      if (foundIndex >= 0) {
+        setStepIndex(foundIndex);
+      }
+    }
+
+    const handlePopState = () => {
+      const nextParams = new URLSearchParams(window.location.search);
+      const requested = nextParams.get("step") || steps[0].id;
+      const nextIndex = steps.findIndex((step) => step.id === requested);
+      setErrors([]);
+      setSubmitError(null);
+      if (nextIndex >= 0) setStepIndex(nextIndex);
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
   useEffect(() => {
     window.localStorage.setItem("spawnos-intake-draft", JSON.stringify(data));
   }, [data]);
 
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("step", steps[stepIndex].id);
+    window.history.pushState({ step: steps[stepIndex].id }, "", url);
+  }, [stepIndex]);
+
   const currentStep = steps[stepIndex];
-  const progress = Math.round((stepIndex / (steps.length - 1)) * 100);
+  const progress = Math.round((Math.min(stepIndex, navigableSteps.length - 1) / (navigableSteps.length - 1)) * 100);
   const suggestedTeam = useMemo(() => suggestAITeam(data), [data]);
   const suggestedRole = useMemo(() => getSuggestedRole(data), [data]);
 
@@ -235,6 +265,12 @@ export default function Home() {
         ...patch,
       },
     } as IntakeData));
+  };
+
+  const goToStep = (nextIndex: number) => {
+    setErrors([]);
+    setSubmitError(null);
+    setStepIndex(Math.max(0, Math.min(nextIndex, steps.length - 1)));
   };
 
   const toggleListValue = (section: "role" | "goals" | "tools", key: string, value: string, max?: number) => {
@@ -293,38 +329,41 @@ export default function Home() {
   };
 
   const nextStep = () => {
-    if (validateStep()) setStepIndex((prev) => Math.min(prev + 1, steps.length - 1));
+    if (validateStep()) goToStep(stepIndex + 1);
   };
 
   const prevStep = () => {
-    setErrors([]);
-    setStepIndex((prev) => Math.max(prev - 1, 0));
+    goToStep(stepIndex - 1);
   };
 
   const submit = async () => {
     setSubmitting(true);
+    setSubmitError(null);
+    setErrors([]);
+
     const payload: IntakeData = { ...data, submittedAt: new Date().toISOString() };
     window.localStorage.setItem("spawnos-intake-submission", JSON.stringify(payload));
-    console.log("SpawnOS intake submission", payload);
 
     try {
-      await fetch("https://hook.us1.make.com/PLACEHOLDER", {
+      const response = await fetch("/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
+
+      const result = (await response.json().catch(() => null)) as { success?: boolean; error?: string } | null;
+
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.error || "We couldn’t submit your intake right now. Please try again.");
+      }
+
+      setData(payload);
+      goToStep(steps.length - 1);
     } catch (error) {
-      console.error("Webhook failed", error);
+      setSubmitError(error instanceof Error ? error.message : "We couldn’t submit your intake right now. Please try again.");
+    } finally {
+      setSubmitting(false);
     }
-
-    const subject = encodeURIComponent(`SpawnOS Intake - ${payload.personal.firstName || "New Lead"}`);
-    const body = encodeURIComponent(JSON.stringify(payload, null, 2));
-    const mailto = `mailto:hello@peptidelaunch.com?subject=${subject}&body=${body}`;
-    window.open(mailto, "_blank");
-
-    setData(payload);
-    setStepIndex(steps.length - 1);
-    setSubmitting(false);
   };
 
   const baseCard =
@@ -566,17 +605,26 @@ export default function Home() {
 
                 {currentStep.id === "done" && (
                   <div className="space-y-5">
-                    <div className="rounded-[24px] border border-[#1F1F1F] bg-[#141414] p-5">
-                      <h3 className="text-2xl font-semibold">Estimated delivery: within 24 hours</h3>
-                      <p className="mt-3 text-[#A1A1AA]">In the meantime, here’s what to have ready:</p>
-                      <ul className="mt-4 space-y-3 text-[#A1A1AA]">
-                        <li>• A computer (Mac or Linux recommended)</li>
-                        <li>• An internet connection</li>
-                        <li>• 10 minutes for setup</li>
+                    <div className="rounded-[24px] border border-red-500/30 bg-red-500/10 p-5">
+                      <h3 className="text-2xl font-semibold">🚀 Your AI Team is Being Built!</h3>
+                      <p className="mt-3 text-[#E4E4E7]">Check your email ({data.personal.email || "your inbox"}) for:</p>
+                      <ul className="mt-4 space-y-3 text-[#E4E4E7]">
+                        <li>✅ Confirmation of your submission</li>
+                        <li>✅ Install instructions (arriving shortly)</li>
                       </ul>
                     </div>
-                    <a href="https://spawnos-site.vercel.app" target="_blank" rel="noreferrer" className="inline-flex rounded-full bg-red-500 px-5 py-3 font-semibold text-[#FAFAFA] transition hover:bg-red-600">Visit SpawnOS site</a>
-                    <p className="text-sm text-[#71717A]">Social links were not provided, so they’re not included yet.</p>
+                    <div className="rounded-[24px] border border-[#1F1F1F] bg-[#141414] p-5">
+                      <p className="text-[#A1A1AA]">While you wait, here’s what to have ready:</p>
+                      <ul className="mt-4 space-y-3 text-[#E4E4E7]">
+                        <li>• A computer (Mac or Linux recommended)</li>
+                        <li>• An internet connection</li>
+                        <li>• 10 minutes for the initial setup</li>
+                      </ul>
+                    </div>
+                    <div className="flex flex-wrap gap-3">
+                      <a href="https://spawnos.io" target="_blank" rel="noreferrer" className="inline-flex rounded-full bg-red-500 px-5 py-3 font-semibold text-[#FAFAFA] transition hover:bg-red-600">Visit SpawnOS</a>
+                      <a href="mailto:hello@spawnos.io" className="inline-flex rounded-full border border-[#1F1F1F] px-5 py-3 font-semibold text-[#FAFAFA] transition hover:border-red-500/40 hover:bg-[#1A1A1A]">Questions? Email hello@spawnos.io</a>
+                    </div>
                   </div>
                 )}
 
@@ -586,14 +634,23 @@ export default function Home() {
                   </div>
                 )}
 
+                {submitError && (
+                  <div className="mt-5 rounded-2xl border border-amber-400/30 bg-amber-400/10 p-4 text-sm text-amber-50">
+                    <div>{submitError}</div>
+                    <button onClick={submit} disabled={submitting} className="mt-3 inline-flex rounded-full bg-[#141414] px-4 py-2 font-semibold text-[#FAFAFA] transition hover:bg-[#1A1A1A] disabled:opacity-50">
+                      {submitting ? "Retrying..." : "Retry submission"}
+                    </button>
+                  </div>
+                )}
+
                 <div className="mt-auto flex items-center justify-between gap-3 pt-6">
                   <button onClick={prevStep} disabled={stepIndex === 0} className="rounded-full border border-[#1F1F1F] px-5 py-3 text-sm font-medium text-[#A1A1AA] transition hover:bg-[#141414] disabled:cursor-not-allowed disabled:opacity-30">Back</button>
                   {currentStep.id === "summary" ? (
                     <button onClick={submit} disabled={submitting} className="rounded-full bg-red-500 px-6 py-3 text-sm font-semibold text-[#FAFAFA] transition hover:bg-red-600 disabled:opacity-60">
-                      {submitting ? "Building..." : "Build My AI Team 🚀"}
+                      {submitting ? "Submitting your intake..." : "Build My AI Team 🚀"}
                     </button>
                   ) : currentStep.id === "done" ? (
-                    <button onClick={() => setStepIndex(0)} className="rounded-full bg-[#141414] px-6 py-3 text-sm font-semibold text-[#FAFAFA] transition hover:border-red-500/40 hover:bg-[#1A1A1A]">Start again</button>
+                    <button onClick={() => goToStep(0)} className="rounded-full bg-[#141414] px-6 py-3 text-sm font-semibold text-[#FAFAFA] transition hover:border-red-500/40 hover:bg-[#1A1A1A]">Start again</button>
                   ) : (
                     <button onClick={nextStep} className="rounded-full bg-red-500 px-6 py-3 text-sm font-semibold text-[#FAFAFA] transition hover:bg-red-600">Continue</button>
                   )}
@@ -612,6 +669,27 @@ export default function Home() {
                 <div className="text-sm font-semibold text-[#FAFAFA]">Question count</div>
                 <div className="mt-2 text-4xl font-bold text-red-400">18</div>
                 <p className="mt-2 text-sm text-[#71717A]">Across 7 sections, plus summary and thank-you screens.</p>
+              </div>
+
+              <div className="rounded-[24px] border border-[#1F1F1F] bg-[#141414] p-5">
+                <div className="text-sm font-semibold text-[#FAFAFA]">Jump to any section</div>
+                <div className="mt-4 grid gap-2">
+                  {navigableSteps.map((step, index) => (
+                    <button
+                      key={step.id}
+                      type="button"
+                      onClick={() => goToStep(index)}
+                      className={`rounded-2xl border px-4 py-3 text-left text-sm transition ${
+                        stepIndex === index
+                          ? "border-red-400 bg-red-500/20 text-[#FAFAFA]"
+                          : "border-[#1F1F1F] bg-[#101010] text-[#A1A1AA] hover:border-red-500/40 hover:text-[#FAFAFA]"
+                      }`}
+                    >
+                      <div className="font-semibold">{index + 1}. {step.section}</div>
+                      <div className="mt-1 text-xs text-inherit opacity-80">{step.title}</div>
+                    </button>
+                  ))}
+                </div>
               </div>
 
               <div className="rounded-[24px] border border-[#1F1F1F] bg-[#141414] p-5">
