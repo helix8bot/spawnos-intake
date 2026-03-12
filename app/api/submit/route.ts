@@ -179,7 +179,7 @@ async function sendResendEmail(apiKey: string, payload: { to: string; subject: s
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "SpawnOS <onboarding@resend.dev>",
+      from: "SpawnOS <build@spawnos.io>",
       to: [payload.to],
       subject: payload.subject,
       html: payload.html,
