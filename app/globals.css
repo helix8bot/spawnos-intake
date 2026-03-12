@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #0B1426;
+  --teal: #0D9488;
+  --teal-light: #14B8A6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: #0B1426;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B1426;
+}
+::-webkit-scrollbar-thumb {
+  background: #0D9488;
+  border-radius: 3px;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(13, 148, 136, 0.4);
+}
