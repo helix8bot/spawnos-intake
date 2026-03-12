@@ -40,26 +40,11 @@ function cleanupRateLimitStore(now: number) {
 
 function buildTelegramSummary(payload: SubmissionPayload) {
   const name = getFriendlyValue(payload.personal.firstName);
-  const email = getFriendlyValue(payload.personal.email);
   const businessName = getFriendlyValue(payload.business.name);
   const industry = getFriendlyValue(payload.business.industry);
-  const teamSize = getFriendlyValue(payload.business.teamSize);
-  const biggestProblem = getFriendlyValue(payload.goals.biggestProblem);
-  const agentName = getFriendlyValue(payload.aiTeam.agentName || "Your AI CIO");
-  const communicationStyle = getFriendlyValue(payload.aiTeam.communicationStyle);
-  const primaryChannel = getFriendlyValue(payload.communication.primaryChannel);
+  const email = getFriendlyValue(payload.personal.email);
 
-  return [
-    "🚀 New SpawnOS Intake",
-    `Name: ${name}`,
-    `Email: ${email}`,
-    `Business: ${businessName} (${industry})`,
-    `Team size: ${teamSize}`,
-    `Biggest problem: ${biggestProblem}`,
-    `Agent name: ${agentName}`,
-    `Comm style: ${communicationStyle}`,
-    `Channel: ${primaryChannel}`,
-  ].join("\n");
+  return `🚀 New SpawnOS signup: ${name} — ${businessName} (${industry}) — ${email}`;
 }
 
 function emailShell(title: string, content: string, footer: string) {
@@ -284,15 +269,12 @@ export async function POST(request: Request) {
     }
 
     await sendTelegramMessage(telegramBotToken, telegramChatId, buildTelegramSummary(payload));
-    await sendTelegramMessage(telegramBotToken, telegramChatId, `Full JSON:\n${JSON.stringify(payload, null, 2)}`);
 
     await sendResendEmail(resendApiKey, {
       to: email,
       subject: "🚀 Your SpawnOS AI Team is Being Built!",
       html: buildConfirmationEmail(payload),
     });
-
-    await sleep(30_000);
 
     await sendResendEmail(resendApiKey, {
       to: email,
