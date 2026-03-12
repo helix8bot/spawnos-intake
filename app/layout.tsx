@@ -9,6 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  themeColor: "#0A0A0A",
   title: "SpawnOS — Build Your AI Team",
   description: "Answer a few questions so we can design your custom AI operating system.",
   openGraph: {
@@ -24,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.variable} font-sans antialiased bg-[#0B1426] text-white`}>
+      <body className={`${inter.variable} font-sans antialiased bg-[#0A0A0A] text-[#FAFAFA]`}>
         {children}
       </body>
     </html>

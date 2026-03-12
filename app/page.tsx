@@ -328,29 +328,29 @@ export default function Home() {
   };
 
   const baseCard =
-    "rounded-[28px] border border-white/15 bg-white/10 backdrop-blur-xl shadow-2xl shadow-black/20";
+    "rounded-[28px] border border-[#1F1F1F] bg-[#141414]/92 backdrop-blur-xl shadow-2xl shadow-black/40";
 
   return (
-    <main className="min-h-screen bg-[#0B1426] text-white">
+    <main className="min-h-screen bg-[#0A0A0A] text-[#FAFAFA]">
       <div className="relative min-h-screen overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${currentStep.image})` }}
         />
-        <div className="absolute inset-0 bg-[#0B1426]/78" />
+        <div className="absolute inset-0 bg-[#0A0A0A]/82" />
         <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-4 sm:px-6 lg:px-8">
           <header className="mb-6 flex items-center justify-between gap-4 pt-2">
             <div>
-              <div className="text-sm font-semibold uppercase tracking-[0.22em] text-teal-300">SpawnOS</div>
-              <h1 className="mt-2 text-lg font-semibold text-white/95 sm:text-xl">Build your custom AI team</h1>
+              <div className="text-sm font-semibold uppercase tracking-[0.22em] text-red-400">SpawnOS</div>
+              <h1 className="mt-2 text-lg font-semibold text-[#FAFAFA] sm:text-xl">Build your custom AI team</h1>
             </div>
-            <div className="rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm text-white/75">
+            <div className="rounded-full border border-[#1F1F1F] bg-[#141414]/90 px-4 py-2 text-sm text-[#A1A1AA]">
               {progress}% complete
             </div>
           </header>
 
-          <div className="mb-6 h-2 w-full overflow-hidden rounded-full bg-white/10">
-            <motion.div className="h-full rounded-full bg-[#0D9488]" animate={{ width: `${progress}%` }} />
+          <div className="mb-6 h-2 w-full overflow-hidden rounded-full bg-[#141414]">
+            <motion.div className="h-full rounded-full bg-gradient-to-r from-red-500 to-orange-500" animate={{ width: `${progress}%` }} />
           </div>
 
           <div className="grid flex-1 items-stretch gap-6 lg:grid-cols-[1.15fr_0.85fr]">
@@ -364,11 +364,11 @@ export default function Home() {
                 className={`${baseCard} flex min-h-[560px] flex-col p-6 sm:p-8`}
               >
                 <div className="mb-6">
-                  <div className="mb-3 inline-flex rounded-full bg-teal-500/15 px-3 py-1 text-sm font-medium text-teal-200">
+                  <div className="mb-3 inline-flex rounded-full bg-red-500/15 px-3 py-1 text-sm font-medium text-red-300">
                     {currentStep.section}
                   </div>
                   <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">{currentStep.title}</h2>
-                  <p className="mt-3 max-w-2xl text-base leading-7 text-white/72">{currentStep.subtitle}</p>
+                  <p className="mt-3 max-w-2xl text-base leading-7 text-[#A1A1AA]">{currentStep.subtitle}</p>
                 </div>
 
                 {currentStep.id === "about-you" && (
@@ -536,8 +536,8 @@ export default function Home() {
                       <SummaryCard title="Tools + channel" lines={[data.tools.email || "—", data.communication.primaryChannel || "—", data.communication.checkInFrequency || "—"]} />
                     </div>
 
-                    <div className="rounded-[24px] border border-teal-400/30 bg-teal-500/10 p-5">
-                      <div className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">Your AI Team Preview</div>
+                    <div className="rounded-[24px] border border-red-500/30 bg-red-500/10 p-5">
+                      <div className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300">Your AI Team Preview</div>
                       <div className="mt-4 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
                         <div className="space-y-3">
                           <PreviewRow label="Agent name" value={data.aiTeam.agentName || suggestedTeam[0]?.name || "We’ll pick one for you"} />
@@ -546,37 +546,37 @@ export default function Home() {
                           <PreviewRow label="Main pain points" value={data.role.timeSinks.join(", ") || "We’ll help identify these with you"} />
                         </div>
                         <div>
-                          <div className="mb-3 text-sm font-medium text-white/70">Suggested team members</div>
+                          <div className="mb-3 text-sm font-medium text-[#A1A1AA]">Suggested team members</div>
                           <div className="grid gap-3 sm:grid-cols-2">
                             {suggestedTeam.map((agent) => (
-                              <div key={agent.name} className="rounded-2xl border border-white/10 bg-white/7 p-4">
+                              <div key={agent.name} className="rounded-2xl border border-[#1F1F1F] bg-[#141414] p-4">
                                 <div className="text-2xl">{agent.icon}</div>
                                 <div className="mt-2 font-semibold">{agent.name}</div>
-                                <div className="text-sm text-teal-200">{agent.role}</div>
-                                <p className="mt-2 text-sm leading-6 text-white/70">{agent.description}</p>
+                                <div className="text-sm text-red-300">{agent.role}</div>
+                                <p className="mt-2 text-sm leading-6 text-[#A1A1AA]">{agent.description}</p>
                               </div>
                             ))}
                           </div>
                         </div>
                       </div>
-                      <p className="mt-4 text-sm text-white/70">We’ll send your custom install package to {data.personal.email || "your email"} within 24 hours.</p>
+                      <p className="mt-4 text-sm text-[#A1A1AA]">We’ll send your custom install package to {data.personal.email || "your email"} within 24 hours.</p>
                     </div>
                   </div>
                 )}
 
                 {currentStep.id === "done" && (
                   <div className="space-y-5">
-                    <div className="rounded-[24px] border border-white/15 bg-white/7 p-5">
+                    <div className="rounded-[24px] border border-[#1F1F1F] bg-[#141414] p-5">
                       <h3 className="text-2xl font-semibold">Estimated delivery: within 24 hours</h3>
-                      <p className="mt-3 text-white/72">In the meantime, here’s what to have ready:</p>
-                      <ul className="mt-4 space-y-3 text-white/82">
+                      <p className="mt-3 text-[#A1A1AA]">In the meantime, here’s what to have ready:</p>
+                      <ul className="mt-4 space-y-3 text-[#A1A1AA]">
                         <li>• A computer (Mac or Linux recommended)</li>
                         <li>• An internet connection</li>
                         <li>• 10 minutes for setup</li>
                       </ul>
                     </div>
-                    <a href="https://spawnos-site.vercel.app" target="_blank" rel="noreferrer" className="inline-flex rounded-full bg-[#0D9488] px-5 py-3 font-semibold text-white transition hover:bg-[#14B8A6]">Visit SpawnOS site</a>
-                    <p className="text-sm text-white/60">Social links were not provided, so they’re not included yet.</p>
+                    <a href="https://spawnos-site.vercel.app" target="_blank" rel="noreferrer" className="inline-flex rounded-full bg-red-500 px-5 py-3 font-semibold text-[#FAFAFA] transition hover:bg-red-600">Visit SpawnOS site</a>
+                    <p className="text-sm text-[#71717A]">Social links were not provided, so they’re not included yet.</p>
                   </div>
                 )}
 
@@ -587,15 +587,15 @@ export default function Home() {
                 )}
 
                 <div className="mt-auto flex items-center justify-between gap-3 pt-6">
-                  <button onClick={prevStep} disabled={stepIndex === 0} className="rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white/80 transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30">Back</button>
+                  <button onClick={prevStep} disabled={stepIndex === 0} className="rounded-full border border-[#1F1F1F] px-5 py-3 text-sm font-medium text-[#A1A1AA] transition hover:bg-[#141414] disabled:cursor-not-allowed disabled:opacity-30">Back</button>
                   {currentStep.id === "summary" ? (
-                    <button onClick={submit} disabled={submitting} className="rounded-full bg-[#0D9488] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#14B8A6] disabled:opacity-60">
+                    <button onClick={submit} disabled={submitting} className="rounded-full bg-red-500 px-6 py-3 text-sm font-semibold text-[#FAFAFA] transition hover:bg-red-600 disabled:opacity-60">
                       {submitting ? "Building..." : "Build My AI Team 🚀"}
                     </button>
                   ) : currentStep.id === "done" ? (
-                    <button onClick={() => setStepIndex(0)} className="rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/15">Start again</button>
+                    <button onClick={() => setStepIndex(0)} className="rounded-full bg-[#141414] px-6 py-3 text-sm font-semibold text-[#FAFAFA] transition hover:border-red-500/40 hover:bg-[#1A1A1A]">Start again</button>
                   ) : (
-                    <button onClick={nextStep} className="rounded-full bg-[#0D9488] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#14B8A6]">Continue</button>
+                    <button onClick={nextStep} className="rounded-full bg-red-500 px-6 py-3 text-sm font-semibold text-[#FAFAFA] transition hover:bg-red-600">Continue</button>
                   )}
                 </div>
               </motion.section>
@@ -603,29 +603,29 @@ export default function Home() {
 
             <aside className={`${baseCard} flex flex-col gap-5 p-6 sm:p-7`}>
               <div>
-                <div className="text-sm font-semibold uppercase tracking-[0.18em] text-teal-200">Why this works</div>
+                <div className="text-sm font-semibold uppercase tracking-[0.18em] text-red-300">Why this works</div>
                 <h3 className="mt-2 text-2xl font-semibold">This should feel like a conversation.</h3>
-                <p className="mt-3 text-sm leading-7 text-white/70">Short screens. Friendly choices. Clear progress. Less typing. Enough detail to build a serious AI setup without making people feel like they’re filling out taxes.</p>
+                <p className="mt-3 text-sm leading-7 text-[#A1A1AA]">Short screens. Friendly choices. Clear progress. Less typing. Enough detail to build a serious AI setup without making people feel like they’re filling out taxes.</p>
               </div>
 
-              <div className="rounded-[24px] border border-white/10 bg-black/15 p-5">
-                <div className="text-sm font-semibold text-white/85">Question count</div>
-                <div className="mt-2 text-4xl font-bold text-teal-300">18</div>
-                <p className="mt-2 text-sm text-white/60">Across 7 sections, plus summary and thank-you screens.</p>
+              <div className="rounded-[24px] border border-[#1F1F1F] bg-[#141414] p-5">
+                <div className="text-sm font-semibold text-[#FAFAFA]">Question count</div>
+                <div className="mt-2 text-4xl font-bold text-red-400">18</div>
+                <p className="mt-2 text-sm text-[#71717A]">Across 7 sections, plus summary and thank-you screens.</p>
               </div>
 
-              <div className="rounded-[24px] border border-white/10 bg-black/15 p-5">
-                <div className="text-sm font-semibold text-white/85">What we’ll use this for</div>
-                <ul className="mt-3 space-y-3 text-sm leading-6 text-white/70">
+              <div className="rounded-[24px] border border-[#1F1F1F] bg-[#141414] p-5">
+                <div className="text-sm font-semibold text-[#FAFAFA]">What we’ll use this for</div>
+                <ul className="mt-3 space-y-3 text-sm leading-6 text-[#A1A1AA]">
                   <li>• Pick the right agent roles for the business</li>
                   <li>• Match tone, tools, and communication style</li>
                   <li>• Build a custom install package, not a generic demo</li>
                 </ul>
               </div>
 
-              <div className="rounded-[24px] border border-white/10 bg-black/15 p-5">
-                <div className="text-sm font-semibold text-white/85">Draft is saved automatically</div>
-                <p className="mt-3 text-sm leading-6 text-white/70">If someone closes the tab, their answers stay in local storage so they can come back without starting over.</p>
+              <div className="rounded-[24px] border border-[#1F1F1F] bg-[#141414] p-5">
+                <div className="text-sm font-semibold text-[#FAFAFA]">Draft is saved automatically</div>
+                <p className="mt-3 text-sm leading-6 text-[#A1A1AA]">If someone closes the tab, their answers stay in local storage so they can come back without starting over.</p>
               </div>
             </aside>
           </div>
@@ -638,7 +638,7 @@ export default function Home() {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label className="block">
-      <div className="mb-2 text-sm font-medium text-white/85">{label}</div>
+      <div className="mb-2 text-sm font-medium text-[#FAFAFA]">{label}</div>
       {children}
     </label>
   );
@@ -651,8 +651,8 @@ function ChoiceButton({ active, onClick, children }: { active: boolean; onClick:
       onClick={onClick}
       className={`flex min-h-14 items-center justify-center gap-2 rounded-2xl border px-4 py-3 text-center text-sm font-medium transition ${
         active
-          ? "border-teal-300 bg-teal-500/20 text-white shadow-lg shadow-teal-900/20"
-          : "border-white/10 bg-white/6 text-white/78 hover:bg-white/10"
+          ? "border-red-400 bg-red-500/20 text-[#FAFAFA] shadow-lg shadow-red-950/40"
+          : "border-[#1F1F1F] bg-[#141414] text-[#A1A1AA] hover:border-red-500/40 hover:bg-[#1A1A1A] hover:text-[#FAFAFA]"
       }`}
     >
       {children}
@@ -662,9 +662,9 @@ function ChoiceButton({ active, onClick, children }: { active: boolean; onClick:
 
 function SummaryCard({ title, lines }: { title: string; lines: string[] }) {
   return (
-    <div className="rounded-[22px] border border-white/10 bg-white/7 p-4">
-      <div className="text-sm font-semibold text-teal-200">{title}</div>
-      <div className="mt-3 space-y-2 text-sm text-white/78">
+    <div className="rounded-[22px] border border-[#1F1F1F] bg-[#141414] p-4">
+      <div className="text-sm font-semibold text-red-300">{title}</div>
+      <div className="mt-3 space-y-2 text-sm text-[#A1A1AA]">
         {lines.filter(Boolean).map((line) => <div key={line}>{line}</div>)}
       </div>
     </div>
@@ -673,12 +673,12 @@ function SummaryCard({ title, lines }: { title: string; lines: string[] }) {
 
 function PreviewRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/7 p-4">
-      <div className="text-xs font-semibold uppercase tracking-[0.18em] text-white/50">{label}</div>
-      <div className="mt-2 text-sm text-white/85">{value}</div>
+    <div className="rounded-2xl border border-[#1F1F1F] bg-[#141414] p-4">
+      <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#71717A]">{label}</div>
+      <div className="mt-2 text-sm text-[#FAFAFA]">{value}</div>
     </div>
   );
 }
 
 const inputClass =
-  "w-full rounded-2xl border border-white/10 bg-[#10203a]/90 px-4 py-3 text-white placeholder:text-white/35";
+  "w-full rounded-2xl border border-[#1F1F1F] bg-[#141414] px-4 py-3 text-[#FAFAFA] placeholder:text-[#71717A] transition focus:border-red-500 focus:ring-2 focus:ring-red-500/20";
