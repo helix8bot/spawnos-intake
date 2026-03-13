@@ -18,7 +18,7 @@ const steps: Step[] = [
     id: "about-you",
     section: "About you",
     title: "Let’s start with the basics.",
-    subtitle: "A few quick details so we know where to send your package.",
+    subtitle: "A few quick details so we know where to send your audit confirmation.",
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1600&q=80",
   },
@@ -57,8 +57,8 @@ const steps: Step[] = [
   {
     id: "ai-team",
     section: "Your AI team",
-    title: "Give your assistant a personality.",
-    subtitle: "This is where it starts to feel like your team, not just software.",
+    title: "What should the operating layer feel like?",
+    subtitle: "This helps us understand how the system should communicate and fit your team.",
     image:
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80",
   },
@@ -73,16 +73,16 @@ const steps: Step[] = [
   {
     id: "summary",
     section: "Summary",
-    title: "Here’s your AI team preview.",
-    subtitle: "Take a quick look before we build your package.",
+    title: "Here’s your audit application summary.",
+    subtitle: "Take a quick look before you submit your audit application.",
     image:
       "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
   },
   {
     id: "done",
     section: "Done",
-    title: "🚀 Your AI Team is Being Built!",
-    subtitle: "Your submission is in. Check your email for confirmation and install instructions.",
+    title: "Audit request received",
+    subtitle: "Your application is in. Check your email for confirmation and next steps.",
     image:
       "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1600&q=80",
   },
@@ -375,29 +375,29 @@ export default function Home() {
   };
 
   const baseCard =
-    "rounded-[28px] border border-[#1F1F1F] bg-[#141414]/92 backdrop-blur-xl shadow-2xl shadow-black/40";
+    "rounded-[28px] border border-[#1E293B] bg-[#111827]/92 backdrop-blur-xl shadow-2xl shadow-black/40";
 
   return (
-    <main className="min-h-screen bg-[#0A0A0A] text-[#FAFAFA]">
+    <main className="min-h-screen bg-[#0B0F14] text-[#FAFAFA]">
       <div className="relative min-h-screen overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${currentStep.image})` }}
         />
-        <div className="absolute inset-0 bg-[#0A0A0A]/82" />
+        <div className="absolute inset-0 bg-[#0B0F14]/82" />
         <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-4 sm:px-6 lg:px-8">
           <header className="mb-6 flex items-center justify-between gap-4 pt-2">
             <div>
-              <div className="text-sm font-semibold uppercase tracking-[0.22em] text-red-400">SpawnOS</div>
-              <h1 className="mt-2 text-lg font-semibold text-[#FAFAFA] sm:text-xl">Build your custom AI team</h1>
+              <div className="text-sm font-semibold uppercase tracking-[0.22em] text-[#94A3B8]">SpawnOS</div>
+              <h1 className="mt-2 text-lg font-semibold text-[#FAFAFA] sm:text-xl">Apply for your SpawnOS Audit</h1>
             </div>
-            <div className="rounded-full border border-[#1F1F1F] bg-[#141414]/90 px-4 py-2 text-sm text-[#A1A1AA]">
+            <div className="rounded-full border border-[#1E293B] bg-[#111827]/90 px-4 py-2 text-sm text-[#94A3B8]">
               {progress}% complete
             </div>
           </header>
 
-          <div className="mb-6 h-2 w-full overflow-hidden rounded-full bg-[#141414]">
-            <motion.div className="h-full rounded-full bg-gradient-to-r from-red-500 to-orange-500" animate={{ width: `${progress}%` }} />
+          <div className="mb-6 h-2 w-full overflow-hidden rounded-full bg-[#111827]">
+            <motion.div className="h-full rounded-full bg-gradient-to-r from-[#2563EB] to-[#94A3B8]" animate={{ width: `${progress}%` }} />
           </div>
 
           <div className="grid flex-1 items-stretch gap-6 lg:grid-cols-[1.15fr_0.85fr]">
@@ -411,17 +411,17 @@ export default function Home() {
                 className={`${baseCard} flex min-h-[560px] flex-col p-6 sm:p-8`}
               >
                 <div className="mb-6">
-                  <div className="mb-3 inline-flex rounded-full bg-red-500/15 px-3 py-1 text-sm font-medium text-red-300">
+                  <div className="mb-3 inline-flex rounded-full bg-[#2563EB]/15 px-3 py-1 text-sm font-medium text-[#BFDBFE]">
                     {currentStep.section}
                   </div>
                   <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">{currentStep.title}</h2>
-                  <p className="mt-3 max-w-2xl text-base leading-7 text-[#A1A1AA]">{currentStep.subtitle}</p>
+                  <p className="mt-3 max-w-2xl text-base leading-7 text-[#94A3B8]">{currentStep.subtitle}</p>
                 </div>
 
                 {currentStep.id === "about-you" && (
                   <div className="space-y-5">
                     <Field label="What’s your first name?">
-                      <input className={inputClass} value={data.personal.firstName} onChange={(e) => setField("personal", { firstName: e.target.value })} placeholder="e.g. Perry" />
+                      <input className={inputClass} value={data.personal.firstName} onChange={(e) => setField("personal", { firstName: e.target.value })} placeholder="e.g. Alex" />
                     </Field>
                     <Field label="What’s your email?">
                       <input type="email" className={inputClass} value={data.personal.email} onChange={(e) => setField("personal", { email: e.target.value })} placeholder="you@company.com" />
@@ -504,7 +504,7 @@ export default function Home() {
 
                 {currentStep.id === "goals" && (
                   <div className="space-y-5">
-                    <Field label="If your AI team could solve ONE problem tomorrow, what would it be?">
+                    <Field label="If SpawnOS could solve ONE operating problem first, what would it be?">
                       <textarea className={`${inputClass} min-h-36`} value={data.goals.biggestProblem} onChange={(e) => setField("goals", { biggestProblem: e.target.value })} placeholder="Don’t overthink it — just write what frustrates you most" />
                     </Field>
                     <Field label="What does success look like 6 months from now? (pick up to 3)">
@@ -583,55 +583,55 @@ export default function Home() {
                       <SummaryCard title="Tools + channel" lines={[data.tools.email || "—", data.communication.primaryChannel || "—", data.communication.checkInFrequency || "—"]} />
                     </div>
 
-                    <div className="rounded-[24px] border border-red-500/30 bg-red-500/10 p-5">
-                      <div className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300">Your AI Team Preview</div>
+                    <div className="rounded-[24px] border border-[#2563EB]/30 bg-[#2563EB]/10 p-5">
+                      <div className="text-sm font-semibold uppercase tracking-[0.2em] text-[#BFDBFE]">Application snapshot</div>
                       <div className="mt-4 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
                         <div className="space-y-3">
-                          <PreviewRow label="Agent name" value={data.aiTeam.agentName || suggestedTeam[0]?.name || "We’ll pick one for you"} />
-                          <PreviewRow label="Role" value={suggestedRole} />
-                          <PreviewRow label="Communication" value={data.communication.primaryChannel || "Telegram"} />
-                          <PreviewRow label="Main pain points" value={data.role.timeSinks.join(", ") || "We’ll help identify these with you"} />
+                          <PreviewRow label="Preferred assistant name" value={data.aiTeam.agentName || suggestedTeam[0]?.name || "We’ll choose a working name"} />
+                          <PreviewRow label="Suggested operating role" value={suggestedRole} />
+                          <PreviewRow label="Preferred communication channel" value={data.communication.primaryChannel || "Telegram"} />
+                          <PreviewRow label="Main bottlenecks" value={data.role.timeSinks.join(", ") || "We’ll identify these during review"} />
                         </div>
                         <div>
-                          <div className="mb-3 text-sm font-medium text-[#A1A1AA]">Suggested team members</div>
+                          <div className="mb-3 text-sm font-medium text-[#94A3B8]">Likely support roles</div>
                           <div className="grid gap-3 sm:grid-cols-2">
                             {suggestedTeam.map((agent) => (
-                              <div key={agent.name} className="rounded-2xl border border-[#1F1F1F] bg-[#141414] p-4">
+                              <div key={agent.name} className="rounded-2xl border border-[#1E293B] bg-[#111827] p-4">
                                 <div className="text-2xl">{agent.icon}</div>
                                 <div className="mt-2 font-semibold">{agent.name}</div>
-                                <div className="text-sm text-red-300">{agent.role}</div>
-                                <p className="mt-2 text-sm leading-6 text-[#A1A1AA]">{agent.description}</p>
+                                <div className="text-sm text-[#BFDBFE]">{agent.role}</div>
+                                <p className="mt-2 text-sm leading-6 text-[#94A3B8]">{agent.description}</p>
                               </div>
                             ))}
                           </div>
                         </div>
                       </div>
-                      <p className="mt-4 text-sm text-[#A1A1AA]">We’ll send your custom install package to {data.personal.email || "your email"} within 24 hours.</p>
+                      <p className="mt-4 text-sm text-[#94A3B8]">We’ll send your audit confirmation and next steps to {data.personal.email || "your email"}.</p>
                     </div>
                   </div>
                 )}
 
                 {currentStep.id === "done" && (
                   <div className="space-y-5">
-                    <div className="rounded-[24px] border border-red-500/30 bg-red-500/10 p-5">
-                      <h3 className="text-2xl font-semibold">🚀 Your AI Team is Being Built!</h3>
+                    <div className="rounded-[24px] border border-[#2563EB]/30 bg-[#2563EB]/10 p-5">
+                      <h3 className="text-2xl font-semibold">Thanks — your audit request is in.</h3>
                       <p className="mt-3 text-[#E4E4E7]">Check your email ({data.personal.email || "your inbox"}) for:</p>
                       <ul className="mt-4 space-y-3 text-[#E4E4E7]">
                         <li>✅ Confirmation of your submission</li>
-                        <li>✅ Install instructions (arriving shortly)</li>
+                        <li>✅ Next-step details if your application is approved</li>
                       </ul>
                     </div>
-                    <div className="rounded-[24px] border border-[#1F1F1F] bg-[#141414] p-5">
-                      <p className="text-[#A1A1AA]">While you wait, here’s what to have ready:</p>
+                    <div className="rounded-[24px] border border-[#1E293B] bg-[#111827] p-5">
+                      <p className="text-[#94A3B8]">If we move forward, it helps to have this ready:</p>
                       <ul className="mt-4 space-y-3 text-[#E4E4E7]">
-                        <li>• A computer (Mac or Linux recommended)</li>
-                        <li>• An internet connection</li>
-                        <li>• 10 minutes for the initial setup</li>
+                        <li>• A clear picture of your current operating bottlenecks</li>
+                        <li>• The core tools your team already uses</li>
+                        <li>• The decision-maker available for the audit conversation</li>
                       </ul>
                     </div>
                     <div className="flex flex-wrap gap-3">
-                      <a href="https://spawnos.io" target="_blank" rel="noreferrer" className="inline-flex rounded-full bg-red-500 px-5 py-3 font-semibold text-[#FAFAFA] transition hover:bg-red-600">Visit SpawnOS</a>
-                      <a href="mailto:hello@spawnos.io" className="inline-flex rounded-full border border-[#1F1F1F] px-5 py-3 font-semibold text-[#FAFAFA] transition hover:border-red-500/40 hover:bg-[#1A1A1A]">Questions? Email hello@spawnos.io</a>
+                      <a href="https://spawnos.io" target="_blank" rel="noreferrer" className="inline-flex rounded-full bg-[#2563EB] px-5 py-3 font-semibold text-[#FAFAFA] transition hover:bg-[#1D4ED8]">Visit SpawnOS.io</a>
+                      <a href="mailto:hello@spawnos.io" className="inline-flex rounded-full border border-[#1E293B] px-5 py-3 font-semibold text-[#FAFAFA] transition hover:border-[#2563EB]/40 hover:bg-[#1A1A1A]">Questions? Email hello@spawnos.io</a>
                     </div>
                   </div>
                 )}
@@ -645,22 +645,22 @@ export default function Home() {
                 {submitError && (
                   <div className="mt-5 rounded-2xl border border-amber-400/30 bg-amber-400/10 p-4 text-sm text-amber-50">
                     <div>{submitError}</div>
-                    <button onClick={submit} disabled={submitting} className="mt-3 inline-flex rounded-full bg-[#141414] px-4 py-2 font-semibold text-[#FAFAFA] transition hover:bg-[#1A1A1A] disabled:opacity-50">
+                    <button onClick={submit} disabled={submitting} className="mt-3 inline-flex rounded-full bg-[#111827] px-4 py-2 font-semibold text-[#FAFAFA] transition hover:bg-[#1A1A1A] disabled:opacity-50">
                       {submitting ? "Retrying..." : "Retry submission"}
                     </button>
                   </div>
                 )}
 
                 <div className="mt-auto flex items-center justify-between gap-3 pt-6">
-                  <button onClick={prevStep} disabled={stepIndex === 0} className="rounded-full border border-[#1F1F1F] px-5 py-3 text-sm font-medium text-[#A1A1AA] transition hover:bg-[#141414] disabled:cursor-not-allowed disabled:opacity-30">Back</button>
+                  <button onClick={prevStep} disabled={stepIndex === 0} className="rounded-full border border-[#1E293B] px-5 py-3 text-sm font-medium text-[#94A3B8] transition hover:bg-[#111827] disabled:cursor-not-allowed disabled:opacity-30">Back</button>
                   {currentStep.id === "summary" ? (
-                    <button onClick={submit} disabled={submitting} className="rounded-full bg-red-500 px-6 py-3 text-sm font-semibold text-[#FAFAFA] transition hover:bg-red-600 disabled:opacity-60">
-                      {submitting ? "Submitting your intake..." : "Build My AI Team 🚀"}
+                    <button onClick={submit} disabled={submitting} className="rounded-full bg-[#2563EB] px-6 py-3 text-sm font-semibold text-[#FAFAFA] transition hover:bg-[#1D4ED8] disabled:opacity-60">
+                      {submitting ? "Submitting your application..." : "Submit Audit Application"}
                     </button>
                   ) : currentStep.id === "done" ? (
-                    <button onClick={() => goToStep(0)} className="rounded-full bg-[#141414] px-6 py-3 text-sm font-semibold text-[#FAFAFA] transition hover:border-red-500/40 hover:bg-[#1A1A1A]">Start again</button>
+                    <button onClick={() => goToStep(0)} className="rounded-full bg-[#111827] px-6 py-3 text-sm font-semibold text-[#FAFAFA] transition hover:border-[#2563EB]/40 hover:bg-[#1A1A1A]">Start again</button>
                   ) : (
-                    <button onClick={nextStep} className="rounded-full bg-red-500 px-6 py-3 text-sm font-semibold text-[#FAFAFA] transition hover:bg-red-600">Continue</button>
+                    <button onClick={nextStep} className="rounded-full bg-[#2563EB] px-6 py-3 text-sm font-semibold text-[#FAFAFA] transition hover:bg-[#1D4ED8]">Continue</button>
                   )}
                 </div>
               </motion.section>
@@ -668,18 +668,18 @@ export default function Home() {
 
             <aside className={`${baseCard} flex flex-col gap-5 p-6 sm:p-7`}>
               <div>
-                <div className="text-sm font-semibold uppercase tracking-[0.18em] text-red-300">Why this works</div>
-                <h3 className="mt-2 text-2xl font-semibold">This should feel like a conversation.</h3>
-                <p className="mt-3 text-sm leading-7 text-[#A1A1AA]">Short screens. Friendly choices. Clear progress. Less typing. Enough detail to build a serious AI setup without making people feel like they’re filling out taxes.</p>
+                <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#BFDBFE]">Why this works</div>
+                <h3 className="mt-2 text-2xl font-semibold">A premium intake that respects operator time.</h3>
+                <p className="mt-3 text-sm leading-7 text-[#94A3B8]">Short screens, clear progress, and enough detail to qualify the right businesses without turning the form into homework.</p>
               </div>
 
-              <div className="rounded-[24px] border border-[#1F1F1F] bg-[#141414] p-5">
+              <div className="rounded-[24px] border border-[#1E293B] bg-[#111827] p-5">
                 <div className="text-sm font-semibold text-[#FAFAFA]">Question count</div>
-                <div className="mt-2 text-4xl font-bold text-red-400">18</div>
-                <p className="mt-2 text-sm text-[#71717A]">Across 7 sections, plus summary and thank-you screens.</p>
+                <div className="mt-2 text-4xl font-bold text-[#94A3B8]">18</div>
+                <p className="mt-2 text-sm text-[#64748B]">Across 7 sections, plus summary and thank-you screens.</p>
               </div>
 
-              <div className="rounded-[24px] border border-[#1F1F1F] bg-[#141414] p-5">
+              <div className="rounded-[24px] border border-[#1E293B] bg-[#111827] p-5">
                 <div className="text-sm font-semibold text-[#FAFAFA]">Jump to any section</div>
                 <div className="mt-4 grid gap-2">
                   {navigableSteps.map((step, index) => (
@@ -689,8 +689,8 @@ export default function Home() {
                       onClick={() => goToStep(index)}
                       className={`rounded-2xl border px-4 py-3 text-left text-sm transition ${
                         stepIndex === index
-                          ? "border-red-400 bg-red-500/20 text-[#FAFAFA]"
-                          : "border-[#1F1F1F] bg-[#101010] text-[#A1A1AA] hover:border-red-500/40 hover:text-[#FAFAFA]"
+                          ? "border-[#2563EB]/50 bg-[#2563EB]/18 text-[#FAFAFA]"
+                          : "border-[#1E293B] bg-[#101010] text-[#94A3B8] hover:border-[#2563EB]/40 hover:text-[#FAFAFA]"
                       }`}
                     >
                       <div className="font-semibold">{index + 1}. {step.section}</div>
@@ -700,18 +700,18 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="rounded-[24px] border border-[#1F1F1F] bg-[#141414] p-5">
-                <div className="text-sm font-semibold text-[#FAFAFA]">What we’ll use this for</div>
-                <ul className="mt-3 space-y-3 text-sm leading-6 text-[#A1A1AA]">
-                  <li>• Pick the right agent roles for the business</li>
-                  <li>• Match tone, tools, and communication style</li>
-                  <li>• Build a custom install package, not a generic demo</li>
+              <div className="rounded-[24px] border border-[#1E293B] bg-[#111827] p-5">
+                <div className="text-sm font-semibold text-[#FAFAFA]">What we use this for</div>
+                <ul className="mt-3 space-y-3 text-sm leading-6 text-[#94A3B8]">
+                  <li>• Understand the operating context and bottlenecks</li>
+                  <li>• Evaluate fit, urgency, and implementation readiness</li>
+                  <li>• Review fit and prepare the right audit conversation</li>
                 </ul>
               </div>
 
-              <div className="rounded-[24px] border border-[#1F1F1F] bg-[#141414] p-5">
+              <div className="rounded-[24px] border border-[#1E293B] bg-[#111827] p-5">
                 <div className="text-sm font-semibold text-[#FAFAFA]">Draft is saved automatically</div>
-                <p className="mt-3 text-sm leading-6 text-[#A1A1AA]">If someone closes the tab, their answers stay in local storage so they can come back without starting over.</p>
+                <p className="mt-3 text-sm leading-6 text-[#94A3B8]">If someone closes the tab, their answers stay in local storage so they can come back without starting over.</p>
               </div>
             </aside>
           </div>
@@ -737,8 +737,8 @@ function ChoiceButton({ active, onClick, children }: { active: boolean; onClick:
       onClick={onClick}
       className={`flex min-h-14 items-center justify-center gap-2 rounded-2xl border px-4 py-3 text-center text-sm font-medium transition ${
         active
-          ? "border-red-400 bg-red-500/20 text-[#FAFAFA] shadow-lg shadow-red-950/40"
-          : "border-[#1F1F1F] bg-[#141414] text-[#A1A1AA] hover:border-red-500/40 hover:bg-[#1A1A1A] hover:text-[#FAFAFA]"
+          ? "border-[#2563EB]/50 bg-[#2563EB]/18 text-[#FAFAFA] shadow-lg shadow-[#0B1120]/40"
+          : "border-[#1E293B] bg-[#111827] text-[#94A3B8] hover:border-[#2563EB]/40 hover:bg-[#1A1A1A] hover:text-[#FAFAFA]"
       }`}
     >
       {children}
@@ -748,9 +748,9 @@ function ChoiceButton({ active, onClick, children }: { active: boolean; onClick:
 
 function SummaryCard({ title, lines }: { title: string; lines: string[] }) {
   return (
-    <div className="rounded-[22px] border border-[#1F1F1F] bg-[#141414] p-4">
-      <div className="text-sm font-semibold text-red-300">{title}</div>
-      <div className="mt-3 space-y-2 text-sm text-[#A1A1AA]">
+    <div className="rounded-[22px] border border-[#1E293B] bg-[#111827] p-4">
+      <div className="text-sm font-semibold text-[#BFDBFE]">{title}</div>
+      <div className="mt-3 space-y-2 text-sm text-[#94A3B8]">
         {lines.filter(Boolean).map((line) => <div key={line}>{line}</div>)}
       </div>
     </div>
@@ -759,12 +759,12 @@ function SummaryCard({ title, lines }: { title: string; lines: string[] }) {
 
 function PreviewRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-[#1F1F1F] bg-[#141414] p-4">
-      <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#71717A]">{label}</div>
+    <div className="rounded-2xl border border-[#1E293B] bg-[#111827] p-4">
+      <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#64748B]">{label}</div>
       <div className="mt-2 text-sm text-[#FAFAFA]">{value}</div>
     </div>
   );
 }
 
 const inputClass =
-  "w-full rounded-2xl border border-[#1F1F1F] bg-[#141414] px-4 py-3 text-[#FAFAFA] placeholder:text-[#71717A] transition focus:border-red-500 focus:ring-2 focus:ring-red-500/20";
+  "w-full rounded-2xl border border-[#1E293B] bg-[#111827] px-4 py-3 text-[#FAFAFA] placeholder:text-[#64748B] transition focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/20";

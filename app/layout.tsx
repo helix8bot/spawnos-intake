@@ -9,15 +9,17 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0A0A0A",
+  themeColor: "#0B0F14",
 };
 
 export const metadata: Metadata = {
-  title: "SpawnOS — Build Your AI Team",
-  description: "Answer a few questions so we can design your custom AI operating system.",
+  metadataBase: new URL("https://audit.spawnos.io"),
+  title: "SpawnOS Audit Application",
+  description: "Apply for the SpawnOS Audit to diagnose operating bottlenecks, map AI team opportunities, and determine the right implementation path.",
   openGraph: {
-    title: "SpawnOS — Build Your AI Team",
-    description: "Answer a few questions so we can design your custom AI operating system.",
+    title: "SpawnOS Audit Application",
+    description: "Apply for the SpawnOS Audit to diagnose operating bottlenecks, map AI team opportunities, and determine the right implementation path.",
+    url: "https://audit.spawnos.io",
   },
 };
 
@@ -28,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.variable} font-sans antialiased bg-[#0A0A0A] text-[#FAFAFA]`}>
+      <body className={`${inter.variable} font-sans antialiased bg-[#0B0F14] text-[#F5F7FA]`}>
         {children}
       </body>
     </html>

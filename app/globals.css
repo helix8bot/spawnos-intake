@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0A0A0A;
-  --surface: #141414;
-  --border: #1F1F1F;
-  --primary: #EF4444;
-  --primary-hover: #DC2626;
-  --secondary: #F97316;
-  --text-primary: #FAFAFA;
-  --text-secondary: #A1A1AA;
-  --text-muted: #71717A;
+  --background: #0B0F14;
+  --surface: #111827;
+  --border: #1E293B;
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --secondary: #94A3B8;
+  --text-primary: #F5F7FA;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
   --success: #22C55E;
 }
 
@@ -22,7 +22,9 @@ html {
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at top, rgba(37, 99, 235, 0.12), transparent 30%),
+    linear-gradient(180deg, #10161F 0%, var(--background) 22%, var(--background) 100%);
   color: var(--text-primary);
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
@@ -42,5 +44,5 @@ body {
 
 input:focus, textarea:focus, select:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.28);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.24);
 }
