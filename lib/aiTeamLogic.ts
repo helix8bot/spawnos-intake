@@ -1,156 +1,103 @@
 import type { AIAgent, IntakeData } from "./types";
 
 const agentPool: Record<string, AIAgent> = {
-  contentWriter: {
-    name: "Nova",
-    role: "Content Writer",
-    description: "Writes emails, blog posts, offers, and social content in your brand voice.",
-    icon: "✍️",
+  chiefOfStaff: {
+    name: "Atlas",
+    role: "AI Chief of Staff",
+    description: "Owns executive briefings, decision support, and cross-functional follow-through.",
+    icon: "🧭",
   },
-  emailAutomation: {
+  communication: {
     name: "Relay",
-    role: "Inbox & Follow-Up Agent",
-    description: "Handles messages, follow-ups, and simple email routines so nothing slips.",
-    icon: "📧",
+    role: "Communication Triage Agent",
+    description: "Sorts inbox and team chatter, drafts replies, and surfaces what actually needs founder attention.",
+    icon: "📨",
   },
-  leadResearch: {
-    name: "Scout",
-    role: "Lead Research Agent",
-    description: "Finds good-fit prospects, collects useful details, and keeps your pipeline warm.",
-    icon: "🔎",
-  },
-  socialMedia: {
+  followUp: {
     name: "Pulse",
-    role: "Social Media Agent",
-    description: "Plans posts, drafts captions, and helps keep your brand active online.",
-    icon: "📱",
+    role: "Follow-Up Agent",
+    description: "Keeps open loops moving so approvals, tasks, and client commitments stop leaking.",
+    icon: "🔁",
   },
-  customerSupport: {
-    name: "Aria",
-    role: "Customer Support Agent",
-    description: "Answers common questions fast and flags anything that needs a human.",
-    icon: "💬",
-  },
-  dataAnalysis: {
+  reporting: {
     name: "Lens",
-    role: "Data Insight Agent",
-    description: "Turns numbers into simple reports, trends, and next-step ideas.",
+    role: "Reporting Agent",
+    description: "Turns scattered updates into structured reports, summaries, and performance briefs.",
     icon: "📊",
   },
-  projectManager: {
-    name: "Atlas",
-    role: "Operations Coordinator",
-    description: "Keeps tasks, deadlines, and moving pieces organized behind the scenes.",
+  delegation: {
+    name: "Forge",
+    role: "Delegation Coordinator",
+    description: "Converts meetings and messages into routed tasks, next steps, and accountability.",
     icon: "🗂️",
   },
-  salesOutreach: {
-    name: "Forge",
-    role: "Sales Outreach Agent",
-    description: "Writes outreach, follows up, and helps turn interest into booked calls.",
-    icon: "🎯",
+  knowledge: {
+    name: "Archive",
+    role: "Knowledge & SOP Agent",
+    description: "Captures recurring processes, decisions, and business memory so context stops living in one head.",
+    icon: "🧠",
   },
-  financeAdmin: {
-    name: "Ledger",
-    role: "Finance Helper",
-    description: "Supports invoices, payment follow-ups, and money-related admin work.",
-    icon: "💰",
-  },
-  techSupport: {
-    name: "Nexus",
-    role: "Tool Setup Agent",
-    description: "Connects tools, keeps automations healthy, and helps with setup steps.",
-    icon: "⚙️",
+  support: {
+    name: "Aria",
+    role: "Customer Support Agent",
+    description: "Handles intake, FAQs, and support routing so customer-facing work stops creating internal drag.",
+    icon: "💬",
   },
 };
 
-const timeSinkMap: Record<string, string[]> = {
-  "Responding to emails & messages": ["emailAutomation", "customerSupport"],
-  "Finding new customers": ["leadResearch", "salesOutreach"],
-  "Managing existing clients": ["customerSupport", "projectManager"],
-  "Social media & marketing": ["socialMedia", "contentWriter"],
-  "Scheduling & calendar": ["projectManager", "emailAutomation"],
-  "Invoicing & payments": ["financeAdmin", "dataAnalysis"],
-  "Tracking inventory / orders": ["projectManager", "dataAnalysis"],
-  "Writing content (blogs, emails, posts)": ["contentWriter", "socialMedia"],
-  "Research & analysis": ["dataAnalysis", "leadResearch"],
-  "Managing my team": ["projectManager", "dataAnalysis"],
-  "Paperwork & compliance": ["projectManager", "financeAdmin"],
-  Other: ["projectManager", "techSupport"],
-};
-
-const industryMap: Record<string, string[]> = {
-  "Real Estate": ["leadResearch", "salesOutreach", "customerSupport"],
-  "E-commerce": ["customerSupport", "emailAutomation", "socialMedia"],
-  "Health & Wellness": ["customerSupport", "contentWriter", "emailAutomation"],
-  "Finance & Investing": ["financeAdmin", "dataAnalysis", "customerSupport"],
-  "Marketing Agency": ["contentWriter", "projectManager", "salesOutreach"],
-  Legal: ["projectManager", "financeAdmin", "customerSupport"],
-  Education: ["contentWriter", "emailAutomation", "customerSupport"],
-  "Tech / SaaS": ["techSupport", "dataAnalysis", "projectManager"],
-  Construction: ["projectManager", "financeAdmin", "customerSupport"],
-  "Restaurant / Food": ["customerSupport", "socialMedia", "projectManager"],
-  Other: ["projectManager", "contentWriter", "techSupport"],
-};
-
-const roleMap: Record<string, string[]> = {
-  "I run the whole thing (Owner/CEO)": ["projectManager", "dataAnalysis", "salesOutreach"],
-  "I handle sales & marketing": ["salesOutreach", "socialMedia", "contentWriter"],
-  "I manage operations": ["projectManager", "dataAnalysis", "financeAdmin"],
-  "I handle finance & accounting": ["financeAdmin", "dataAnalysis", "projectManager"],
-  "I do the technical stuff": ["techSupport", "projectManager", "dataAnalysis"],
-  "A bit of everything": ["projectManager", "emailAutomation", "contentWriter"],
+const intensityWeight: Record<string, number> = {
+  Low: 1,
+  Medium: 2,
+  High: 3,
+  Severe: 4,
 };
 
 export function suggestAITeam(data: IntakeData): AIAgent[] {
-  const scores: Record<string, number> = {};
-
-  const add = (keys: string[], weight: number) => {
-    keys.forEach((key, index) => {
-      scores[key] = (scores[key] || 0) + Math.max(weight - index, 1);
-    });
+  const scores: Record<string, number> = {
+    chiefOfStaff: 2,
   };
 
-  data.role.timeSinks.forEach((sink) => add(timeSinkMap[sink] || timeSinkMap.Other, 4));
-  add(industryMap[data.business.industry] || industryMap.Other, 3);
-  add(roleMap[data.role.mainRole] || roleMap["A bit of everything"], 3);
+  const add = (key: keyof typeof scores | string, score: number) => {
+    scores[key] = (scores[key] || 0) + score;
+  };
 
-  const ordered = Object.entries(scores)
+  const d = data.diagnostics;
+
+  add("communication", intensityWeight[d.communicationLoad] || 0);
+  add("followUp", intensityWeight[d.followUpLeakage] || 0);
+  add("reporting", intensityWeight[d.reportingBurden] || 0);
+  add("delegation", intensityWeight[d.delegationFriction] || 0);
+  add("knowledge", intensityWeight[d.documentationWeakness] || 0);
+  add("chiefOfStaff", intensityWeight[d.coordinationOverhead] || 0);
+  add("chiefOfStaff", intensityWeight[d.toolSprawl] || 0);
+  add("support", intensityWeight[d.supportDrag] || 0);
+  add("chiefOfStaff", intensityWeight[d.scaleReadiness] || 0);
+
+  if (data.founder.hoursLostPerWeek === "20+ hours") add("chiefOfStaff", 2);
+  if (data.business.teamSize === "21-50 people" || data.business.teamSize === "50+ people") add("chiefOfStaff", 2);
+  if (data.business.industry === "Marketing Agency") add("reporting", 1);
+  if (data.business.industry === "E-commerce") add("support", 1);
+
+  return Object.entries(scores)
     .sort((a, b) => b[1] - a[1])
     .map(([key]) => agentPool[key])
-    .filter(Boolean);
-
-  const unique: AIAgent[] = [];
-  const seen = new Set<string>();
-
-  for (const agent of ordered) {
-    if (!seen.has(agent.name)) {
-      unique.push(agent);
-      seen.add(agent.name);
-    }
-    if (unique.length >= 4) break;
-  }
-
-  for (const fallback of [agentPool.projectManager, agentPool.emailAutomation, agentPool.contentWriter]) {
-    if (unique.length >= 4) break;
-    if (!seen.has(fallback.name)) {
-      unique.push(fallback);
-      seen.add(fallback.name);
-    }
-  }
-
-  return unique;
+    .filter(Boolean)
+    .slice(0, 4);
 }
 
 export function getSuggestedRole(data: IntakeData) {
-  const industry = data.business.industry || "Business";
-  const role = data.role.mainRole || "Operator";
+  const severeCount = Object.values(data.diagnostics).filter((value) => value === "Severe").length;
 
-  if (industry === "Marketing Agency") return "Growth-focused client delivery team";
-  if (industry === "E-commerce") return "Sales and support automation team";
-  if (industry === "Real Estate") return "Lead capture and follow-up team";
-  if (industry === "Tech / SaaS") return "Operations and product support team";
-  if (role.includes("Owner/CEO")) return "Executive AI chief of staff team";
-  if (role.includes("operations")) return "Operations automation team";
+  if (severeCount >= 3) return "AI chief-of-staff layer with specialist support pods";
+  if (data.diagnostics.reportingBurden === "High" || data.diagnostics.reportingBurden === "Severe") {
+    return "Executive reporting and coordination layer";
+  }
+  if (data.diagnostics.supportDrag === "High" || data.diagnostics.supportDrag === "Severe") {
+    return "Client-facing intake and support layer";
+  }
+  if (data.diagnostics.delegationFriction === "High" || data.diagnostics.delegationFriction === "Severe") {
+    return "Delegation and follow-through layer";
+  }
 
-  return `${industry} AI support team`;
+  return "Core AI operating layer with founder support";
 }

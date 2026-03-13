@@ -15,76 +15,67 @@ type Step = {
 
 const steps: Step[] = [
   {
-    id: "about-you",
-    section: "About you",
-    title: "Let’s start with the basics.",
-    subtitle: "A few quick details so we know where to send your audit confirmation.",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1600&q=80",
+    id: "intro",
+    section: "Overview",
+    title: "Take the SpawnOS Audit",
+    subtitle: "In a few minutes, this audit diagnoses your operational bottlenecks, surfaces where AI can help, estimates time and efficiency upside, and gives us the raw material to produce your implementation blueprint if there’s a fit.",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80",
   },
   {
-    id: "business",
-    section: "Your business",
-    title: "Tell us about the business behind the scenes.",
-    subtitle: "This helps us shape the right AI team around real work, not guesses.",
-    image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
+    id: "company-profile",
+    section: "Company profile",
+    title: "Start with the business context.",
+    subtitle: "We use this to anchor the audit in your real operating environment, not generic AI advice.",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
   },
   {
-    id: "role",
-    section: "Your role",
-    title: "Where are you spending your energy right now?",
-    subtitle: "Pick what feels most true today — no need to make it perfect.",
-    image:
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80",
+    id: "founder-bottleneck",
+    section: "Founder bottleneck",
+    title: "Where are you personally still acting as the operating system?",
+    subtitle: "This section helps us diagnose bottleneck intensity, role overload, and the drag that still routes through leadership.",
+    image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80",
   },
   {
-    id: "goals",
-    section: "Your goals",
-    title: "Nice. Now let’s aim this at something that matters.",
-    subtitle: "The clearer the goal, the better your AI team can help.",
-    image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80",
+    id: "operational-diagnostics",
+    section: "Operational diagnostics",
+    title: "Score the friction across the business.",
+    subtitle: "These questions are grouped so scoring and implementation recommendations are possible later, even if the full scoring engine is still lightweight today.",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
   },
   {
-    id: "tools",
-    section: "Your tools",
-    title: "What are you already using today?",
-    subtitle: "We’ll keep your setup practical and matched to your comfort level.",
-    image:
-      "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1600&q=80",
+    id: "systems-stack",
+    section: "Systems stack",
+    title: "What systems are carrying the load today?",
+    subtitle: "We need to know what your team already uses, where context lives, and how much tool switching is hurting execution.",
+    image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1600&q=80",
   },
   {
-    id: "ai-team",
-    section: "Your AI team",
-    title: "What should the operating layer feel like?",
-    subtitle: "This helps us understand how the system should communicate and fit your team.",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80",
+    id: "targets",
+    section: "Targets and upside",
+    title: "What would a successful implementation actually change?",
+    subtitle: "This is where we translate pain into time saved, execution leverage, and business upside.",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80",
   },
   {
-    id: "communication",
-    section: "Communication",
-    title: "Last thing — how should your AI keep in touch?",
-    subtitle: "Almost there. Let’s make sure it fits your day-to-day rhythm.",
-    image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80",
+    id: "blueprint",
+    section: "Blueprint inputs",
+    title: "Give us the inputs we would use for the implementation blueprint.",
+    subtitle: "If you move forward, these answers become the starting point for rollout so you do not have to repeat the same information later.",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80",
   },
   {
     id: "summary",
     section: "Summary",
-    title: "Here’s your audit application summary.",
-    subtitle: "Take a quick look before you submit your audit application.",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
+    title: "Review your SpawnOS Audit before submitting.",
+    subtitle: "This summary shows the bottleneck pattern we’re seeing and the AI team direction it points toward.",
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
   },
   {
     id: "done",
     section: "Done",
-    title: "Audit request received",
-    subtitle: "Your application is in. Check your email for confirmation and next steps.",
-    image:
-      "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1600&q=80",
+    title: "Thanks for taking the SpawnOS Audit",
+    subtitle: "Your audit is in. We’ll review your bottlenecks and AI opportunities, then come back with the recommended implementation path if there’s a fit.",
+    image: "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1600&q=80",
   },
 ];
 
@@ -101,26 +92,13 @@ const timezoneOptions = [
   "Other",
 ];
 
-const industries = [
-  "Real Estate",
-  "E-commerce",
-  "Health & Wellness",
-  "Finance & Investing",
-  "Marketing Agency",
-  "Legal",
-  "Education",
-  "Tech / SaaS",
-  "Construction",
-  "Restaurant / Food",
-  "Other",
-];
-
+const industries = ["Marketing Agency", "E-commerce", "Real Estate", "Health & Wellness", "Finance & Investing", "Legal", "Education", "Tech / SaaS", "Construction", "Restaurant / Food", "Other"];
 const industryIcons: Record<string, string> = {
-  "Real Estate": "🏠",
+  "Marketing Agency": "📣",
   "E-commerce": "🛒",
+  "Real Estate": "🏠",
   "Health & Wellness": "💪",
   "Finance & Investing": "💰",
-  "Marketing Agency": "📣",
   Legal: "⚖️",
   Education: "📚",
   "Tech / SaaS": "💻",
@@ -130,81 +108,25 @@ const industryIcons: Record<string, string> = {
 };
 
 const teamSizes = ["Just me", "2-5 people", "6-20 people", "21-50 people", "50+ people"];
-const roles = [
-  "I run the whole thing (Owner/CEO)",
-  "I handle sales & marketing",
-  "I manage operations",
-  "I handle finance & accounting",
-  "I do the technical stuff",
-  "A bit of everything",
-];
-const timeSinks = [
-  "Responding to emails & messages",
-  "Finding new customers",
-  "Managing existing clients",
-  "Social media & marketing",
-  "Scheduling & calendar",
-  "Invoicing & payments",
-  "Tracking inventory / orders",
-  "Writing content (blogs, emails, posts)",
-  "Research & analysis",
-  "Managing my team",
-  "Paperwork & compliance",
-  "Other",
-];
-const sixMonthGoals = [
-  "More revenue",
-  "More free time",
-  "Better organized",
-  "Faster response times",
-  "More customers",
-  "Lower costs",
-  "Less stress",
-  "Automated marketing",
-  "Better data & insights",
-  "Scaling without hiring",
-];
-const emailTools = ["Gmail / Google Workspace", "Outlook / Microsoft 365", "Yahoo", "Other"];
-const currentTools = [
-  "Slack",
-  "Discord",
-  "Telegram",
-  "WhatsApp",
-  "Notion",
-  "Google Sheets",
-  "Salesforce",
-  "HubSpot",
-  "Shopify",
-  "WordPress / WooCommerce",
-  "QuickBooks",
-  "None of these",
-];
-const communicationStyles = [
-  'Keep it casual ("Hey! Here’s what I found...")',
-  'Professional but friendly ("Good morning. Here’s your daily update.")',
-  'Straight to business ("Revenue up 12%. 3 tasks pending.")',
-  'Challenge me ("Your pricing is wrong. Here’s why.")',
-];
-const primaryChannels = ["Telegram", "Discord", "Slack", "Email only", "Web chat only"];
-const checkInFrequencies = [
-  "Multiple times a day",
-  "Once in the morning, once at night",
-  "Only when something important happens",
-  "I’ll come to it when I need it",
-];
-const techComfortOptions = [
-  '😰 "What’s a terminal?"',
-  '🤔 "I can Google my way through most things"',
-  '😊 "I’m pretty comfortable"',
-  '🤓 "I write code for fun"',
-];
+const revenueBands = ["Under $500K", "$500K-$1M", "$1M-$3M", "$3M-$10M", "$10M+"];
+const deliveryModels = ["Retainers / recurring services", "Project-based services", "E-commerce / transactions", "Appointments / booked service", "Mixed model"];
+const founderRoles = ["Founder / CEO", "Founder-operator", "COO / Head of Operations", "Sales-led founder", "Delivery-led founder", "I wear multiple hats"];
+const hoursLostOptions = ["0-5 hours", "6-10 hours", "11-20 hours", "20+ hours"];
+const diagnosticLevels = ["Low", "Medium", "High", "Severe"];
+const emailTools = ["Gmail / Google Workspace", "Outlook / Microsoft 365", "Superhuman", "Other"];
+const currentTools = ["Slack", "Discord", "Telegram", "WhatsApp", "Notion", "Google Sheets", "Airtable", "HubSpot", "Salesforce", "ClickUp / Asana", "Shopify", "QuickBooks", "None of these"];
+const sourceOfTruthOptions = ["Mostly in my head", "Scattered across docs and chats", "A few SOPs exist but they’re inconsistent", "We have a clean source of truth"];
+const techComfortOptions = ['😰 Minimal', '🤔 Moderate', '😊 Comfortable', '🤓 Technical'];
+const sixMonthGoals = ["Buy back founder time", "Increase team throughput", "Tighten follow-up", "Improve reporting visibility", "Scale without immediate hiring", "Reduce execution errors", "Create better SOP coverage", "Improve client/customer response speed"];
+const implementationGoals = ["Remove founder bottlenecks", "Install an AI chief-of-staff layer", "Reduce communication drag", "Improve delegation and follow-through", "Create a real operating cadence"];
+const primaryChannels = ["Telegram", "Slack", "Email", "Discord", "Web chat only"];
+const checkInFrequencies = ["Multiple times a day", "Daily executive briefing", "Only when something needs a decision", "Weekly summary only"];
 
 const navigableSteps = steps.filter((step) => step.id !== "done");
 
 export default function Home() {
   const [stepIndex, setStepIndex] = useState(0);
   const [otherIndustry, setOtherIndustry] = useState("");
-  const [otherTimeSink, setOtherTimeSink] = useState("");
   const [otherEmailTool, setOtherEmailTool] = useState("");
   const [data, setData] = useState<IntakeData>(defaultIntakeData);
   const [errors, setErrors] = useState<string[]>([]);
@@ -216,8 +138,7 @@ export default function Home() {
     const saved = window.localStorage.getItem("spawnos-intake-draft");
     if (saved) {
       try {
-        const parsed = JSON.parse(saved) as IntakeData;
-        setData(parsed);
+        setData(JSON.parse(saved) as IntakeData);
       } catch {}
     }
 
@@ -225,9 +146,7 @@ export default function Home() {
     const requestedStep = params.get("step");
     if (requestedStep) {
       const foundIndex = steps.findIndex((step) => step.id === requestedStep);
-      if (foundIndex >= 0) {
-        setStepIndex(foundIndex);
-      }
+      if (foundIndex >= 0) setStepIndex(foundIndex);
     }
 
     const handlePopState = () => {
@@ -256,6 +175,17 @@ export default function Home() {
   const progress = Math.round((Math.min(stepIndex, navigableSteps.length - 1) / (navigableSteps.length - 1)) * 100);
   const suggestedTeam = useMemo(() => suggestAITeam(data), [data]);
   const suggestedRole = useMemo(() => getSuggestedRole(data), [data]);
+  const diagnosticCards = [
+    ["Communication load", data.diagnostics.communicationLoad],
+    ["Follow-up leakage", data.diagnostics.followUpLeakage],
+    ["Reporting burden", data.diagnostics.reportingBurden],
+    ["Delegation friction", data.diagnostics.delegationFriction],
+    ["Documentation weakness", data.diagnostics.documentationWeakness],
+    ["Coordination overhead", data.diagnostics.coordinationOverhead],
+    ["Tool sprawl", data.diagnostics.toolSprawl],
+    ["Support drag", data.diagnostics.supportDrag],
+    ["Scale readiness gap", data.diagnostics.scaleReadiness],
+  ] as const;
 
   const setField = (section: keyof IntakeData, patch: Record<string, string | string[]>) => {
     setData((prev) => ({
@@ -281,12 +211,12 @@ export default function Home() {
     }
   };
 
-  const toggleListValue = (section: "role" | "goals" | "tools", key: string, value: string, max?: number) => {
+  const toggleListValue = (section: "goals" | "systems", key: string, value: string, max?: number) => {
     setData((prev) => {
       const current = [...(prev[section][key as keyof IntakeData[typeof section]] as string[])];
       let next = current.includes(value) ? current.filter((item) => item !== value) : [...current, value];
-      if (section === "tools" && value === "None of these" && !current.includes(value)) next = ["None of these"];
-      if (section === "tools" && value !== "None of these") next = next.filter((item) => item !== "None of these");
+      if (section === "systems" && value === "None of these" && !current.includes(value)) next = ["None of these"];
+      if (section === "systems" && value !== "None of these") next = next.filter((item) => item !== "None of these");
       if (max && next.length > max) return prev;
       return { ...prev, [section]: { ...prev[section], [key]: next } };
     });
@@ -295,41 +225,47 @@ export default function Home() {
   const validateStep = () => {
     const nextErrors: string[] = [];
 
-    if (currentStep.id === "about-you") {
+    if (currentStep.id === "intro") {
       if (!data.personal.firstName.trim()) nextErrors.push("Please add your first name.");
       if (!data.personal.email.trim() || !data.personal.email.includes("@")) nextErrors.push("Please add a valid email.");
       if (!data.personal.timezone) nextErrors.push("Please pick your timezone.");
     }
 
-    if (currentStep.id === "business") {
+    if (currentStep.id === "company-profile") {
       if (!data.business.name.trim()) nextErrors.push("Please add your business name.");
       if (!data.business.industry.trim()) nextErrors.push("Please choose your industry.");
-      if (!data.business.description.trim()) nextErrors.push("Please describe your business in one sentence.");
+      if (!data.business.description.trim()) nextErrors.push("Please describe your business.");
       if (!data.business.teamSize.trim()) nextErrors.push("Please choose your team size.");
+      if (!data.business.revenueBand.trim()) nextErrors.push("Please choose your revenue band.");
     }
 
-    if (currentStep.id === "role") {
-      if (!data.role.mainRole) nextErrors.push("Please choose your main role.");
-      if (data.role.timeSinks.length === 0) nextErrors.push("Please pick at least one time-drain.");
+    if (currentStep.id === "founder-bottleneck") {
+      if (!data.founder.primaryRole.trim()) nextErrors.push("Please choose your primary role.");
+      if (!data.founder.biggestBottleneck.trim()) nextErrors.push("Please describe the main bottleneck.");
+      if (!data.founder.hoursLostPerWeek.trim()) nextErrors.push("Please estimate hours lost per week.");
+      if (!data.founder.currentGrowthConstraint.trim()) nextErrors.push("Please describe what’s constraining growth.");
     }
 
-    if (currentStep.id === "goals") {
-      if (!data.goals.biggestProblem.trim()) nextErrors.push("Tell us the one problem you want solved first.");
-      if (data.goals.sixMonthGoals.length === 0) nextErrors.push("Pick at least one 6-month goal.");
+    if (currentStep.id === "operational-diagnostics") {
+      if (diagnosticCards.some(([, value]) => !value)) nextErrors.push("Please score each diagnostic category so we can map the bottlenecks correctly.");
     }
 
-    if (currentStep.id === "tools") {
-      if (!data.tools.email.trim()) nextErrors.push("Please choose your email setup.");
-      if (!data.tools.techComfort.trim()) nextErrors.push("Please tell us your comfort level with tech.");
+    if (currentStep.id === "systems-stack") {
+      if (!data.systems.email.trim()) nextErrors.push("Please choose your email setup.");
+      if (!data.systems.sourceOfTruth.trim()) nextErrors.push("Please tell us how documented your operation is.");
+      if (!data.systems.techComfort.trim()) nextErrors.push("Please tell us your tech comfort level.");
     }
 
-    if (currentStep.id === "ai-team") {
-      if (!data.aiTeam.communicationStyle.trim()) nextErrors.push("Please choose how your AI should talk to you.");
+    if (currentStep.id === "targets") {
+      if (!data.goals.implementationGoal.trim()) nextErrors.push("Please choose the main implementation goal.");
+      if (data.goals.sixMonthGoals.length === 0) nextErrors.push("Please pick at least one 6-month target.");
+      if (!data.goals.desiredOutcome.trim()) nextErrors.push("Please describe the outcome you want this audit to unlock.");
     }
 
-    if (currentStep.id === "communication") {
-      if (!data.communication.primaryChannel.trim()) nextErrors.push("Please choose your main channel.");
-      if (!data.communication.checkInFrequency.trim()) nextErrors.push("Please choose a check-in rhythm.");
+    if (currentStep.id === "blueprint") {
+      if (!data.blueprint.preferredChannel.trim()) nextErrors.push("Please choose your preferred channel.");
+      if (!data.blueprint.checkInFrequency.trim()) nextErrors.push("Please choose a check-in rhythm.");
+      if (!data.blueprint.notesForBlueprint.trim()) nextErrors.push("Please add implementation notes for the blueprint.");
     }
 
     setErrors(nextErrors);
@@ -340,9 +276,7 @@ export default function Home() {
     if (validateStep()) goToStep(stepIndex + 1);
   };
 
-  const prevStep = () => {
-    goToStep(stepIndex - 1);
-  };
+  const prevStep = () => goToStep(stepIndex - 1);
 
   const submit = async () => {
     setSubmitting(true);
@@ -360,40 +294,31 @@ export default function Home() {
       });
 
       const result = (await response.json().catch(() => null)) as { success?: boolean; error?: string } | null;
-
-      if (!response.ok || !result?.success) {
-        throw new Error(result?.error || "We couldn’t submit your intake right now. Please try again.");
-      }
+      if (!response.ok || !result?.success) throw new Error(result?.error || "We couldn’t submit your audit right now. Please try again.");
 
       setData(payload);
       goToStep(steps.length - 1);
     } catch (error) {
-      setSubmitError(error instanceof Error ? error.message : "We couldn’t submit your intake right now. Please try again.");
+      setSubmitError(error instanceof Error ? error.message : "We couldn’t submit your audit right now. Please try again.");
     } finally {
       setSubmitting(false);
     }
   };
 
-  const baseCard =
-    "rounded-[28px] border border-[#1E293B] bg-[#111827]/92 backdrop-blur-xl shadow-2xl shadow-black/40";
+  const baseCard = "rounded-[28px] border border-[#1E293B] bg-[#111827]/92 backdrop-blur-xl shadow-2xl shadow-black/40";
 
   return (
     <main className="min-h-screen bg-[#0B0F14] text-[#FAFAFA]">
       <div className="relative min-h-screen overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${currentStep.image})` }}
-        />
-        <div className="absolute inset-0 bg-[#0B0F14]/82" />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${currentStep.image})` }} />
+        <div className="absolute inset-0 bg-[#0B0F14]/84" />
         <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-4 sm:px-6 lg:px-8">
           <header className="mb-6 flex items-center justify-between gap-4 pt-2">
             <div>
               <div className="text-sm font-semibold uppercase tracking-[0.22em] text-[#94A3B8]">SpawnOS</div>
-              <h1 className="mt-2 text-lg font-semibold text-[#FAFAFA] sm:text-xl">Apply for your SpawnOS Audit</h1>
+              <h1 className="mt-2 text-lg font-semibold text-[#FAFAFA] sm:text-xl">Take the SpawnOS Audit</h1>
             </div>
-            <div className="rounded-full border border-[#1E293B] bg-[#111827]/90 px-4 py-2 text-sm text-[#94A3B8]">
-              {progress}% complete
-            </div>
+            <div className="rounded-full border border-[#1E293B] bg-[#111827]/90 px-4 py-2 text-sm text-[#94A3B8]">{progress}% complete</div>
           </header>
 
           <div className="mb-6 h-2 w-full overflow-hidden rounded-full bg-[#111827]">
@@ -411,15 +336,22 @@ export default function Home() {
                 className={`${baseCard} flex min-h-[560px] flex-col p-6 sm:p-8`}
               >
                 <div className="mb-6">
-                  <div className="mb-3 inline-flex rounded-full bg-[#2563EB]/15 px-3 py-1 text-sm font-medium text-[#BFDBFE]">
-                    {currentStep.section}
-                  </div>
+                  <div className="mb-3 inline-flex rounded-full bg-[#2563EB]/15 px-3 py-1 text-sm font-medium text-[#BFDBFE]">{currentStep.section}</div>
                   <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">{currentStep.title}</h2>
                   <p className="mt-3 max-w-2xl text-base leading-7 text-[#94A3B8]">{currentStep.subtitle}</p>
                 </div>
 
-                {currentStep.id === "about-you" && (
+                {currentStep.id === "intro" && (
                   <div className="space-y-5">
+                    <div className="rounded-[24px] border border-[#2563EB]/30 bg-[#2563EB]/10 p-5 text-sm leading-7 text-[#E2E8F0]">
+                      <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#BFDBFE]">What you get</div>
+                      <ul className="mt-3 space-y-2">
+                        <li>• A diagnostic view of your founder bottlenecks and operating drag</li>
+                        <li>• An AI opportunity map and recommended team structure</li>
+                        <li>• Estimated time-saved and efficiency / revenue-upside framing</li>
+                        <li>• The implementation starting point if you move forward</li>
+                      </ul>
+                    </div>
                     <Field label="What’s your first name?">
                       <input className={inputClass} value={data.personal.firstName} onChange={(e) => setField("personal", { firstName: e.target.value })} placeholder="e.g. Alex" />
                     </Field>
@@ -435,7 +367,7 @@ export default function Home() {
                   </div>
                 )}
 
-                {currentStep.id === "business" && (
+                {currentStep.id === "company-profile" && (
                   <div className="space-y-5">
                     <Field label="What’s your business called?">
                       <input className={inputClass} value={data.business.name} onChange={(e) => setField("business", { name: e.target.value })} placeholder="Your company name" />
@@ -450,126 +382,148 @@ export default function Home() {
                         ))}
                       </div>
                       {data.business.industry === "Other" && (
-                        <input
-                          className={`${inputClass} mt-3`}
-                          value={otherIndustry}
-                          onChange={(e) => {
-                            setOtherIndustry(e.target.value);
-                            setField("business", { industry: e.target.value || "Other" });
-                          }}
-                          placeholder="Tell us your industry"
-                        />
+                        <input className={`${inputClass} mt-3`} value={otherIndustry} onChange={(e) => {
+                          setOtherIndustry(e.target.value);
+                          setField("business", { industry: e.target.value || "Other" });
+                        }} placeholder="Tell us your industry" />
                       )}
                     </Field>
-                    <Field label="How would you describe your business in one sentence?">
-                      <input className={inputClass} value={data.business.description} onChange={(e) => setField("business", { description: e.target.value })} placeholder="e.g. I manage rental properties in Austin" />
+                    <Field label="Describe the business in one sentence.">
+                      <input className={inputClass} value={data.business.description} onChange={(e) => setField("business", { description: e.target.value })} placeholder="Who you serve, what you deliver, and how the business runs" />
                     </Field>
-                    <Field label="How many people work in your business?">
-                      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-                        {teamSizes.map((size) => <ChoiceButton key={size} active={data.business.teamSize === size} onClick={() => setField("business", { teamSize: size })}>{size}</ChoiceButton>)}
-                      </div>
-                    </Field>
-                  </div>
-                )}
-
-                {currentStep.id === "role" && (
-                  <div className="space-y-5">
-                    <Field label="What’s your main role?">
-                      <div className="grid gap-3">
-                        {roles.map((role) => <ChoiceButton key={role} active={data.role.mainRole === role} onClick={() => setField("role", { mainRole: role })}>{role}</ChoiceButton>)}
-                      </div>
-                    </Field>
-                    <Field label="What takes up most of your time right now? (pick up to 3)">
+                    <div className="grid gap-5 sm:grid-cols-2">
+                      <Field label="Team size">
+                        <div className="grid grid-cols-2 gap-3">
+                          {teamSizes.map((size) => <ChoiceButton key={size} active={data.business.teamSize === size} onClick={() => setField("business", { teamSize: size })}>{size}</ChoiceButton>)}
+                        </div>
+                      </Field>
+                      <Field label="Revenue band">
+                        <div className="grid gap-3">
+                          {revenueBands.map((band) => <ChoiceButton key={band} active={data.business.revenueBand === band} onClick={() => setField("business", { revenueBand: band })}>{band}</ChoiceButton>)}
+                        </div>
+                      </Field>
+                    </div>
+                    <Field label="Which delivery model is closest to yours?">
                       <div className="grid gap-3 sm:grid-cols-2">
-                        {timeSinks.map((sink) => (
-                          <ChoiceButton key={sink} active={data.role.timeSinks.includes(sink) || (sink === "Other" && data.role.timeSinks.some((item) => !timeSinks.includes(item)))} onClick={() => toggleListValue("role", "timeSinks", sink, 3)}>
-                            {sink}
-                          </ChoiceButton>
-                        ))}
+                        {deliveryModels.map((model) => <ChoiceButton key={model} active={data.business.deliveryModel === model} onClick={() => setField("business", { deliveryModel: model })}>{model}</ChoiceButton>)}
                       </div>
-                      {data.role.timeSinks.includes("Other") && (
-                        <input
-                          className={`${inputClass} mt-3`}
-                          value={otherTimeSink}
-                          onChange={(e) => {
-                            setOtherTimeSink(e.target.value);
-                            setData((prev) => ({ ...prev, role: { ...prev.role, timeSinks: prev.role.timeSinks.filter((item) => item !== "Other" && timeSinks.includes(item)).concat(e.target.value ? [e.target.value] : ["Other"]).slice(0, 3) } }));
-                          }}
-                          placeholder="What else is eating up your time?"
-                        />
-                      )}
                     </Field>
                   </div>
                 )}
 
-                {currentStep.id === "goals" && (
+                {currentStep.id === "founder-bottleneck" && (
                   <div className="space-y-5">
-                    <Field label="If SpawnOS could solve ONE operating problem first, what would it be?">
-                      <textarea className={`${inputClass} min-h-36`} value={data.goals.biggestProblem} onChange={(e) => setField("goals", { biggestProblem: e.target.value })} placeholder="Don’t overthink it — just write what frustrates you most" />
+                    <Field label="What best describes your role right now?">
+                      <div className="grid gap-3">
+                        {founderRoles.map((role) => <ChoiceButton key={role} active={data.founder.primaryRole === role} onClick={() => setField("founder", { primaryRole: role })}>{role}</ChoiceButton>)}
+                      </div>
                     </Field>
-                    <Field label="What does success look like 6 months from now? (pick up to 3)">
+                    <Field label="What is the main bottleneck you want this audit to diagnose first?">
+                      <textarea className={`${inputClass} min-h-32`} value={data.founder.biggestBottleneck} onChange={(e) => setField("founder", { biggestBottleneck: e.target.value })} placeholder="Example: everything still routes through me for approvals, reporting, follow-up, or client communication" />
+                    </Field>
+                    <Field label="Roughly how many founder hours disappear each week into coordination, follow-up, reporting, or context recovery?">
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        {hoursLostOptions.map((option) => <ChoiceButton key={option} active={data.founder.hoursLostPerWeek === option} onClick={() => setField("founder", { hoursLostPerWeek: option })}>{option}</ChoiceButton>)}
+                      </div>
+                    </Field>
+                    <Field label="What is currently constraining growth or execution the most?">
+                      <textarea className={`${inputClass} min-h-28`} value={data.founder.currentGrowthConstraint} onChange={(e) => setField("founder", { currentGrowthConstraint: e.target.value })} placeholder="Tell us what breaks when volume increases" />
+                    </Field>
+                  </div>
+                )}
+
+                {currentStep.id === "operational-diagnostics" && (
+                  <div className="space-y-5">
+                    {[
+                      ["communicationLoad", "Communication load", "How heavy is the founder/team communication burden across inboxes, chat, and updates?"],
+                      ["followUpLeakage", "Follow-up leakage", "How often do tasks, approvals, leads, or client commitments fall through the cracks?"],
+                      ["reportingBurden", "Reporting burden", "How painful is assembling updates, summaries, and leadership visibility?"],
+                      ["delegationFriction", "Delegation friction", "How often does delegated work boomerang back because context or clarity is missing?"],
+                      ["documentationWeakness", "Process / documentation weakness", "How weak is the company’s SOP and searchable business-memory layer?"],
+                      ["coordinationOverhead", "Team coordination overhead", "How much time is lost to task-routing, clarification, and cross-functional wrangling?"],
+                      ["toolSprawl", "Tool sprawl / context switching", "How fragmented is the operation across tools, tabs, and channels?"],
+                      ["supportDrag", "Customer support / intake drag", "How much operational drag comes from customer questions, lead intake, or front-door triage?"],
+                      ["scaleReadiness", "Scale readiness", "How confident are you that the business could absorb more volume without breaking internally?"],
+                    ].map(([key, title, description]) => (
+                      <Field key={key} label={`${title} — ${description}`}>
+                        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                          {diagnosticLevels.map((level) => (
+                            <ChoiceButton key={level} active={data.diagnostics[key as keyof IntakeData["diagnostics"]] === level} onClick={() => setField("diagnostics", { [key]: level })}>
+                              {level}
+                            </ChoiceButton>
+                          ))}
+                        </div>
+                      </Field>
+                    ))}
+                  </div>
+                )}
+
+                {currentStep.id === "systems-stack" && (
+                  <div className="space-y-5">
+                    <Field label="What do you currently use for email?">
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        {emailTools.map((tool) => <ChoiceButton key={tool} active={data.systems.email === tool || (tool === "Other" && !!data.systems.email && !emailTools.includes(data.systems.email))} onClick={() => setField("systems", { email: tool })}>{tool}</ChoiceButton>)}
+                      </div>
+                      {data.systems.email === "Other" && (
+                        <input className={`${inputClass} mt-3`} value={otherEmailTool} onChange={(e) => {
+                          setOtherEmailTool(e.target.value);
+                          setField("systems", { email: e.target.value || "Other" });
+                        }} placeholder="Tell us what you use" />
+                      )}
+                    </Field>
+                    <Field label="Which of these tools are in the mix today?">
+                      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                        {currentTools.map((tool) => <ChoiceButton key={tool} active={data.systems.currentTools.includes(tool)} onClick={() => toggleListValue("systems", "currentTools", tool)}>{tool}</ChoiceButton>)}
+                      </div>
+                    </Field>
+                    <Field label="Where does your operational source of truth live today?">
+                      <div className="grid gap-3">
+                        {sourceOfTruthOptions.map((option) => <ChoiceButton key={option} active={data.systems.sourceOfTruth === option} onClick={() => setField("systems", { sourceOfTruth: option })}>{option}</ChoiceButton>)}
+                      </div>
+                    </Field>
+                    <Field label="How technically comfortable is your team?">
+                      <div className="grid gap-3">
+                        {techComfortOptions.map((option) => <ChoiceButton key={option} active={data.systems.techComfort === option} onClick={() => setField("systems", { techComfort: option })}>{option}</ChoiceButton>)}
+                      </div>
+                    </Field>
+                  </div>
+                )}
+
+                {currentStep.id === "targets" && (
+                  <div className="space-y-5">
+                    <Field label="What is the main implementation goal?">
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        {implementationGoals.map((goal) => <ChoiceButton key={goal} active={data.goals.implementationGoal === goal} onClick={() => setField("goals", { implementationGoal: goal })}>{goal}</ChoiceButton>)}
+                      </div>
+                    </Field>
+                    <Field label="What should materially improve in the next 6 months? (pick up to 3)">
                       <div className="grid gap-3 sm:grid-cols-2">
                         {sixMonthGoals.map((goal) => <ChoiceButton key={goal} active={data.goals.sixMonthGoals.includes(goal)} onClick={() => toggleListValue("goals", "sixMonthGoals", goal, 3)}>{goal}</ChoiceButton>)}
                       </div>
                     </Field>
+                    <Field label="What would make this audit feel obviously valuable to you?">
+                      <textarea className={`${inputClass} min-h-32`} value={data.goals.desiredOutcome} onChange={(e) => setField("goals", { desiredOutcome: e.target.value })} placeholder="Example: show me where AI saves 15 hours/week, what team structure I need, and what we’d implement first" />
+                    </Field>
                   </div>
                 )}
 
-                {currentStep.id === "tools" && (
+                {currentStep.id === "blueprint" && (
                   <div className="space-y-5">
-                    <Field label="What do you currently use for email?">
+                    <div className="rounded-[24px] border border-[#2563EB]/30 bg-[#2563EB]/10 p-5 text-sm leading-7 text-[#E2E8F0]">
+                      If you move forward, your audit answers become the starting point for implementation. That means no repetitive re-onboarding just to restate the same business context later.
+                    </div>
+                    <Field label="If we were to build around one primary communication channel, what should it be?">
                       <div className="grid gap-3 sm:grid-cols-2">
-                        {emailTools.map((tool) => <ChoiceButton key={tool} active={data.tools.email === tool || (tool === "Other" && !!data.tools.email && !emailTools.includes(data.tools.email))} onClick={() => setField("tools", { email: tool })}>{tool}</ChoiceButton>)}
-                      </div>
-                      {data.tools.email === "Other" && (
-                        <input
-                          className={`${inputClass} mt-3`}
-                          value={otherEmailTool}
-                          onChange={(e) => {
-                            setOtherEmailTool(e.target.value);
-                            setField("tools", { email: e.target.value || "Other" });
-                          }}
-                          placeholder="Tell us what you use"
-                        />
-                      )}
-                    </Field>
-                    <Field label="Do you use any of these tools?">
-                      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-                        {currentTools.map((tool) => <ChoiceButton key={tool} active={data.tools.currentTools.includes(tool)} onClick={() => toggleListValue("tools", "currentTools", tool)}>{tool}</ChoiceButton>)}
+                        {primaryChannels.map((channel) => <ChoiceButton key={channel} active={data.blueprint.preferredChannel === channel} onClick={() => setField("blueprint", { preferredChannel: channel })}>{channel}</ChoiceButton>)}
                       </div>
                     </Field>
-                    <Field label="How would you describe your comfort with technology?">
+                    <Field label="What reporting / briefing rhythm would fit best?">
                       <div className="grid gap-3">
-                        {techComfortOptions.map((option) => <ChoiceButton key={option} active={data.tools.techComfort === option} onClick={() => setField("tools", { techComfort: option })}>{option}</ChoiceButton>)}
+                        {checkInFrequencies.map((frequency) => <ChoiceButton key={frequency} active={data.blueprint.checkInFrequency === frequency} onClick={() => setField("blueprint", { checkInFrequency: frequency })}>{frequency}</ChoiceButton>)}
                       </div>
                     </Field>
-                  </div>
-                )}
-
-                {currentStep.id === "ai-team" && (
-                  <div className="space-y-5">
-                    <Field label="What should your AI assistant’s name be?">
-                      <input className={inputClass} value={data.aiTeam.agentName} onChange={(e) => setField("aiTeam", { agentName: e.target.value })} placeholder="e.g. Atlas, Nova, or leave blank and we’ll pick one" />
-                    </Field>
-                    <Field label="How should your AI talk to you?">
-                      <div className="grid gap-3">
-                        {communicationStyles.map((style) => <ChoiceButton key={style} active={data.aiTeam.communicationStyle === style} onClick={() => setField("aiTeam", { communicationStyle: style })}>{style}</ChoiceButton>)}
-                      </div>
-                    </Field>
-                  </div>
-                )}
-
-                {currentStep.id === "communication" && (
-                  <div className="space-y-5">
-                    <Field label="How do you want your AI to reach you?">
-                      <div className="grid gap-3 sm:grid-cols-2">
-                        {primaryChannels.map((channel) => <ChoiceButton key={channel} active={data.communication.primaryChannel === channel} onClick={() => setField("communication", { primaryChannel: channel })}>{channel}{channel === "Telegram" ? " (recommended — works on phone)" : ""}</ChoiceButton>)}
-                      </div>
-                    </Field>
-                    <Field label="How often should your AI check in?">
-                      <div className="grid gap-3">
-                        {checkInFrequencies.map((frequency) => <ChoiceButton key={frequency} active={data.communication.checkInFrequency === frequency} onClick={() => setField("communication", { checkInFrequency: frequency })}>{frequency}</ChoiceButton>)}
-                      </div>
+                    <Field label="Anything else we should know when designing the implementation blueprint?">
+                      <textarea className={`${inputClass} min-h-32`} value={data.blueprint.notesForBlueprint} onChange={(e) => setField("blueprint", { notesForBlueprint: e.target.value })} placeholder="Share constraints, decision-makers, tool requirements, security concerns, or non-negotiables" />
                     </Field>
                   </div>
                 )}
@@ -577,23 +531,27 @@ export default function Home() {
                 {currentStep.id === "summary" && (
                   <div className="space-y-5">
                     <div className="grid gap-4 md:grid-cols-2">
-                      <SummaryCard title="About you" lines={[data.personal.firstName || "—", data.personal.email || "—", data.personal.timezone || "—"]} />
-                      <SummaryCard title="Business" lines={[data.business.name || "—", data.business.industry || "—", data.business.teamSize || "—"]} />
-                      <SummaryCard title="Role + goals" lines={[data.role.mainRole || "—", ...data.goals.sixMonthGoals.slice(0, 2)]} />
-                      <SummaryCard title="Tools + channel" lines={[data.tools.email || "—", data.communication.primaryChannel || "—", data.communication.checkInFrequency || "—"]} />
+                      <SummaryCard title="Business context" lines={[data.business.name || "—", data.business.industry || "—", data.business.teamSize || "—", data.business.revenueBand || "—"]} />
+                      <SummaryCard title="Founder bottleneck" lines={[data.founder.primaryRole || "—", data.founder.hoursLostPerWeek || "—", data.founder.biggestBottleneck || "—"]} />
+                      <SummaryCard title="Implementation target" lines={[data.goals.implementationGoal || "—", ...data.goals.sixMonthGoals.slice(0, 2)]} />
+                      <SummaryCard title="Blueprint inputs" lines={[data.blueprint.preferredChannel || "—", data.blueprint.checkInFrequency || "—", data.systems.sourceOfTruth || "—"]} />
                     </div>
 
                     <div className="rounded-[24px] border border-[#2563EB]/30 bg-[#2563EB]/10 p-5">
-                      <div className="text-sm font-semibold uppercase tracking-[0.2em] text-[#BFDBFE]">Application snapshot</div>
-                      <div className="mt-4 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
+                      <div className="text-sm font-semibold uppercase tracking-[0.2em] text-[#BFDBFE]">Diagnostic preview</div>
+                      <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                        {diagnosticCards.map(([label, value]) => (
+                          <PreviewRow key={label} label={label} value={value || "Not scored"} />
+                        ))}
+                      </div>
+                      <div className="mt-5 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
                         <div className="space-y-3">
-                          <PreviewRow label="Preferred assistant name" value={data.aiTeam.agentName || suggestedTeam[0]?.name || "We’ll choose a working name"} />
-                          <PreviewRow label="Suggested operating role" value={suggestedRole} />
-                          <PreviewRow label="Preferred communication channel" value={data.communication.primaryChannel || "Telegram"} />
-                          <PreviewRow label="Main bottlenecks" value={data.role.timeSinks.join(", ") || "We’ll identify these during review"} />
+                          <PreviewRow label="Recommended operating layer" value={suggestedRole} />
+                          <PreviewRow label="Estimated founder time currently at risk" value={data.founder.hoursLostPerWeek || "Not set"} />
+                          <PreviewRow label="Desired business outcome" value={data.goals.desiredOutcome || "—"} />
                         </div>
                         <div>
-                          <div className="mb-3 text-sm font-medium text-[#94A3B8]">Likely support roles</div>
+                          <div className="mb-3 text-sm font-medium text-[#94A3B8]">Likely AI team structure</div>
                           <div className="grid gap-3 sm:grid-cols-2">
                             {suggestedTeam.map((agent) => (
                               <div key={agent.name} className="rounded-2xl border border-[#1E293B] bg-[#111827] p-4">
@@ -606,7 +564,7 @@ export default function Home() {
                           </div>
                         </div>
                       </div>
-                      <p className="mt-4 text-sm text-[#94A3B8]">We’ll send your audit confirmation and next steps to {data.personal.email || "your email"}.</p>
+                      <p className="mt-4 text-sm text-[#94A3B8]">This audit will be reviewed and turned into an AI operating blueprint / fit assessment if there’s a qualified implementation path.</p>
                     </div>
                   </div>
                 )}
@@ -614,33 +572,26 @@ export default function Home() {
                 {currentStep.id === "done" && (
                   <div className="space-y-5">
                     <div className="rounded-[24px] border border-[#2563EB]/30 bg-[#2563EB]/10 p-5">
-                      <h3 className="text-2xl font-semibold">Thanks — your audit request is in.</h3>
-                      <p className="mt-3 text-[#E4E4E7]">Check your email ({data.personal.email || "your inbox"}) for:</p>
+                      <h3 className="text-2xl font-semibold">Thanks for taking the SpawnOS Audit.</h3>
+                      <p className="mt-3 text-[#E4E4E7]">We’re reviewing your bottlenecks, AI opportunities, and implementation fit. If qualified, we’ll come back with the recommended path forward.</p>
                       <ul className="mt-4 space-y-3 text-[#E4E4E7]">
-                        <li>✅ Confirmation of your submission</li>
-                        <li>✅ Next-step details if your application is approved</li>
+                        <li>✅ Audit submission received</li>
+                        <li>✅ Bottleneck and AI opportunity review queued</li>
+                        <li>✅ Your answers saved for reuse if implementation moves forward</li>
                       </ul>
                     </div>
                     <div className="rounded-[24px] border border-[#1E293B] bg-[#111827] p-5">
-                      <p className="text-[#94A3B8]">If we move forward, it helps to have this ready:</p>
+                      <p className="text-[#94A3B8]">What happens next:</p>
                       <ul className="mt-4 space-y-3 text-[#E4E4E7]">
-                        <li>• A clear picture of your current operating bottlenecks</li>
-                        <li>• The core tools your team already uses</li>
-                        <li>• The decision-maker available for the audit conversation</li>
+                        <li>• We review the operational bottlenecks and likely AI intervention points</li>
+                        <li>• We assess fit for a SpawnOS implementation blueprint</li>
+                        <li>• If there’s a fit, we come back with the recommended implementation path</li>
                       </ul>
-                    </div>
-                    <div className="flex flex-wrap gap-3">
-                      <a href="https://spawnos.io" target="_blank" rel="noreferrer" className="inline-flex rounded-full bg-[#2563EB] px-5 py-3 font-semibold text-[#FAFAFA] transition hover:bg-[#1D4ED8]">Visit SpawnOS.io</a>
-                      <a href="mailto:hello@spawnos.io" className="inline-flex rounded-full border border-[#1E293B] px-5 py-3 font-semibold text-[#FAFAFA] transition hover:border-[#2563EB]/40 hover:bg-[#1A1A1A]">Questions? Email hello@spawnos.io</a>
                     </div>
                   </div>
                 )}
 
-                {errors.length > 0 && (
-                  <div className="mt-5 rounded-2xl border border-rose-400/30 bg-rose-400/10 p-4 text-sm text-rose-100">
-                    {errors.map((error) => <div key={error}>• {error}</div>)}
-                  </div>
-                )}
+                {errors.length > 0 && <div className="mt-5 rounded-2xl border border-rose-400/30 bg-rose-400/10 p-4 text-sm text-rose-100">{errors.map((error) => <div key={error}>• {error}</div>)}</div>}
 
                 {submitError && (
                   <div className="mt-5 rounded-2xl border border-amber-400/30 bg-amber-400/10 p-4 text-sm text-amber-50">
@@ -655,7 +606,7 @@ export default function Home() {
                   <button onClick={prevStep} disabled={stepIndex === 0} className="rounded-full border border-[#1E293B] px-5 py-3 text-sm font-medium text-[#94A3B8] transition hover:bg-[#111827] disabled:cursor-not-allowed disabled:opacity-30">Back</button>
                   {currentStep.id === "summary" ? (
                     <button onClick={submit} disabled={submitting} className="rounded-full bg-[#2563EB] px-6 py-3 text-sm font-semibold text-[#FAFAFA] transition hover:bg-[#1D4ED8] disabled:opacity-60">
-                      {submitting ? "Submitting your application..." : "Submit Audit Application"}
+                      {submitting ? "Submitting your audit..." : "Submit SpawnOS Audit"}
                     </button>
                   ) : currentStep.id === "done" ? (
                     <button onClick={() => goToStep(0)} className="rounded-full bg-[#111827] px-6 py-3 text-sm font-semibold text-[#FAFAFA] transition hover:border-[#2563EB]/40 hover:bg-[#1A1A1A]">Start again</button>
@@ -668,31 +619,36 @@ export default function Home() {
 
             <aside className={`${baseCard} flex flex-col gap-5 p-6 sm:p-7`}>
               <div>
-                <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#BFDBFE]">Why this works</div>
-                <h3 className="mt-2 text-2xl font-semibold">A premium intake that respects operator time.</h3>
-                <p className="mt-3 text-sm leading-7 text-[#94A3B8]">Short screens, clear progress, and enough detail to qualify the right businesses without turning the form into homework.</p>
+                <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#BFDBFE]">Premium diagnostic</div>
+                <h3 className="mt-2 text-2xl font-semibold">This is the first step in designing your AI operating system.</h3>
+                <p className="mt-3 text-sm leading-7 text-[#94A3B8]">Not a generic application form. The audit is structured to diagnose bottlenecks, make scoring possible, and feed directly into implementation if there’s a fit.</p>
               </div>
 
               <div className="rounded-[24px] border border-[#1E293B] bg-[#111827] p-5">
-                <div className="text-sm font-semibold text-[#FAFAFA]">Question count</div>
-                <div className="mt-2 text-4xl font-bold text-[#94A3B8]">18</div>
-                <p className="mt-2 text-sm text-[#64748B]">Across 7 sections, plus summary and thank-you screens.</p>
+                <div className="text-sm font-semibold text-[#FAFAFA]">Audit outputs</div>
+                <ul className="mt-3 space-y-3 text-sm leading-6 text-[#94A3B8]">
+                  <li>• Founder bottleneck diagnosis</li>
+                  <li>• AI opportunity map</li>
+                  <li>• Recommended AI team structure</li>
+                  <li>• Time-saved and efficiency upside framing</li>
+                  <li>• Implementation blueprint inputs</li>
+                </ul>
+              </div>
+
+              <div className="rounded-[24px] border border-[#1E293B] bg-[#111827] p-5">
+                <div className="text-sm font-semibold text-[#FAFAFA]">Diagnostic categories</div>
+                <div className="mt-4 grid gap-2">
+                  {diagnosticCards.map(([label]) => (
+                    <div key={label} className="rounded-2xl border border-[#1E293B] bg-[#101010] px-4 py-3 text-sm text-[#94A3B8]">{label}</div>
+                  ))}
+                </div>
               </div>
 
               <div className="rounded-[24px] border border-[#1E293B] bg-[#111827] p-5">
                 <div className="text-sm font-semibold text-[#FAFAFA]">Jump to any section</div>
                 <div className="mt-4 grid gap-2">
                   {navigableSteps.map((step, index) => (
-                    <button
-                      key={step.id}
-                      type="button"
-                      onClick={() => goToStep(index)}
-                      className={`rounded-2xl border px-4 py-3 text-left text-sm transition ${
-                        stepIndex === index
-                          ? "border-[#2563EB]/50 bg-[#2563EB]/18 text-[#FAFAFA]"
-                          : "border-[#1E293B] bg-[#101010] text-[#94A3B8] hover:border-[#2563EB]/40 hover:text-[#FAFAFA]"
-                      }`}
-                    >
+                    <button key={step.id} type="button" onClick={() => goToStep(index)} className={`rounded-2xl border px-4 py-3 text-left text-sm transition ${stepIndex === index ? "border-[#2563EB]/50 bg-[#2563EB]/18 text-[#FAFAFA]" : "border-[#1E293B] bg-[#101010] text-[#94A3B8] hover:border-[#2563EB]/40 hover:text-[#FAFAFA]"}`}>
                       <div className="font-semibold">{index + 1}. {step.section}</div>
                       <div className="mt-1 text-xs text-inherit opacity-80">{step.title}</div>
                     </button>
@@ -701,17 +657,8 @@ export default function Home() {
               </div>
 
               <div className="rounded-[24px] border border-[#1E293B] bg-[#111827] p-5">
-                <div className="text-sm font-semibold text-[#FAFAFA]">What we use this for</div>
-                <ul className="mt-3 space-y-3 text-sm leading-6 text-[#94A3B8]">
-                  <li>• Understand the operating context and bottlenecks</li>
-                  <li>• Evaluate fit, urgency, and implementation readiness</li>
-                  <li>• Review fit and prepare the right audit conversation</li>
-                </ul>
-              </div>
-
-              <div className="rounded-[24px] border border-[#1E293B] bg-[#111827] p-5">
                 <div className="text-sm font-semibold text-[#FAFAFA]">Draft is saved automatically</div>
-                <p className="mt-3 text-sm leading-6 text-[#94A3B8]">If someone closes the tab, their answers stay in local storage so they can come back without starting over.</p>
+                <p className="mt-3 text-sm leading-6 text-[#94A3B8]">Close the tab and come back later — your audit answers stay saved locally.</p>
               </div>
             </aside>
           </div>
@@ -736,9 +683,7 @@ function ChoiceButton({ active, onClick, children }: { active: boolean; onClick:
       type="button"
       onClick={onClick}
       className={`flex min-h-14 items-center justify-center gap-2 rounded-2xl border px-4 py-3 text-center text-sm font-medium transition ${
-        active
-          ? "border-[#2563EB]/50 bg-[#2563EB]/18 text-[#FAFAFA] shadow-lg shadow-[#0B1120]/40"
-          : "border-[#1E293B] bg-[#111827] text-[#94A3B8] hover:border-[#2563EB]/40 hover:bg-[#1A1A1A] hover:text-[#FAFAFA]"
+        active ? "border-[#2563EB]/50 bg-[#2563EB]/18 text-[#FAFAFA] shadow-lg shadow-[#0B1120]/40" : "border-[#1E293B] bg-[#111827] text-[#94A3B8] hover:border-[#2563EB]/40 hover:bg-[#1A1A1A] hover:text-[#FAFAFA]"
       }`}
     >
       {children}
@@ -766,5 +711,4 @@ function PreviewRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-const inputClass =
-  "w-full rounded-2xl border border-[#1E293B] bg-[#111827] px-4 py-3 text-[#FAFAFA] placeholder:text-[#64748B] transition focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/20";
+const inputClass = "w-full rounded-2xl border border-[#1E293B] bg-[#111827] px-4 py-3 text-[#FAFAFA] placeholder:text-[#64748B] transition focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/20";

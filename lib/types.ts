@@ -10,14 +10,37 @@ export interface IntakeData {
     industry: string;
     description: string;
     teamSize: string;
+    revenueBand: string;
+    deliveryModel: string;
   };
-  role: {
-    mainRole: string;
-    timeSinks: string[];
+  founder: {
+    primaryRole: string;
+    biggestBottleneck: string;
+    hoursLostPerWeek: string;
+    currentGrowthConstraint: string;
+  };
+  diagnostics: {
+    communicationLoad: string;
+    followUpLeakage: string;
+    reportingBurden: string;
+    delegationFriction: string;
+    documentationWeakness: string;
+    coordinationOverhead: string;
+    toolSprawl: string;
+    supportDrag: string;
+    scaleReadiness: string;
   };
   goals: {
-    biggestProblem: string;
+    implementationGoal: string;
     sixMonthGoals: string[];
+    desiredOutcome: string;
+    biggestProblem: string;
+  };
+  systems: {
+    email: string;
+    currentTools: string[];
+    techComfort: string;
+    sourceOfTruth: string;
   };
   tools: {
     email: string;
@@ -32,17 +55,35 @@ export interface IntakeData {
     primaryChannel: string;
     checkInFrequency: string;
   };
+  blueprint: {
+    preferredChannel: string;
+    checkInFrequency: string;
+    notesForBlueprint: string;
+  };
 }
 
 export const defaultIntakeData: IntakeData = {
   submittedAt: "",
   personal: { firstName: "", email: "", timezone: "" },
-  business: { name: "", industry: "", description: "", teamSize: "" },
-  role: { mainRole: "", timeSinks: [] },
-  goals: { biggestProblem: "", sixMonthGoals: [] },
+  business: { name: "", industry: "", description: "", teamSize: "", revenueBand: "", deliveryModel: "" },
+  founder: { primaryRole: "", biggestBottleneck: "", hoursLostPerWeek: "", currentGrowthConstraint: "" },
+  diagnostics: {
+    communicationLoad: "",
+    followUpLeakage: "",
+    reportingBurden: "",
+    delegationFriction: "",
+    documentationWeakness: "",
+    coordinationOverhead: "",
+    toolSprawl: "",
+    supportDrag: "",
+    scaleReadiness: "",
+  },
+  goals: { implementationGoal: "", sixMonthGoals: [], desiredOutcome: "", biggestProblem: "" },
+  systems: { email: "", currentTools: [], techComfort: "", sourceOfTruth: "" },
   tools: { email: "", currentTools: [], techComfort: "" },
   aiTeam: { agentName: "", communicationStyle: "" },
   communication: { primaryChannel: "", checkInFrequency: "" },
+  blueprint: { preferredChannel: "", checkInFrequency: "", notesForBlueprint: "" },
 };
 
 export interface AIAgent {
