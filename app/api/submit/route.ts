@@ -285,18 +285,13 @@ export async function POST(request: Request) {
     const sheetWebhookUrl = process.env.SPAWNOS_SHEET_WEBHOOK;
     if (sheetWebhookUrl) {
       try {
-        const sheetRes = await fetch(sheetWebhookUrl, {
+        await fetch(sheetWebhookUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
           redirect: "follow",
         });
-        console.log("Sheet webhook response:", sheetRes.status);
-      } catch (webhookErr) {
-        console.error("Sheet webhook error:", webhookErr);
-      }
-    } else {
-      console.log("SPAWNOS_SHEET_WEBHOOK not set");
+      } catch {}
     }
 
     return NextResponse.json({ success: true });
