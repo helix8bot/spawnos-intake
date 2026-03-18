@@ -282,6 +282,15 @@ export async function POST(request: Request) {
       html: buildAuditReviewEmail(payload),
     });
 
+    const sheetWebhookUrl = process.env.SPAWNOS_SHEET_WEBHOOK;
+    if (sheetWebhookUrl) {
+      fetch(sheetWebhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }).catch(() => {});
+    }
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("SpawnOS submit route error", error);
