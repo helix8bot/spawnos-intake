@@ -285,12 +285,23 @@ export async function POST(request: Request) {
     const sheetWebhookUrl = process.env.SPAWNOS_SHEET_WEBHOOK;
     if (sheetWebhookUrl) {
       try {
-        await fetch(sheetWebhookUrl, {
+        const sheetRes = await fetch(sheetWebhookUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
-          redirect: "follow",
+          redirect: "manual",
         });
+        if (sheetRes.status >= 300 && sheetRes.status < 400) {
+          const redirectUrl = sheetRes.headers.get("location");
+          if (redirectUrl) {
+            await fetch(redirectUrl, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+              redirect: "follow",
+            });
+          }
+        }
       } catch {}
     }
 
